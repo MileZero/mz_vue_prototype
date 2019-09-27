@@ -19,6 +19,7 @@
       <vue-navigation-bar
           :options="navbarOptions"
           @vnb-item-clicked="vnbItemClicked"
+          
         >
         </vue-navigation-bar>
     </div>
@@ -148,17 +149,22 @@ export default {
           href: '/',
           title: 'Search',
           icon: 'fa fa-search'
-      },  
-      menuOptionsRight: [
+      },            
+      ],
+      navbarOptions: {
+        elementId: "main-navbar",
+        isUsingVueRouter: true,
+        menuOptionsRight: [
           {
             type: "link",
-            text: "NodeNames"
+            text: "NodeNames",
           subMenuOptions: [
               {
                 isLinkAction: true,
                 type: "link",
                 text: "Albany(7585)",
-                path: "./7585"
+                path: "?node=7585",
+                name: "7585"
               },
               {
                 type: "hr"
@@ -166,7 +172,8 @@ export default {
               {
                 type: "link",
                 text: "Cincinnati(3941)",
-                path: "./3941"
+                path: "?node=3941",
+                name: "3941"
               },
               {
                 type: "hr"
@@ -174,19 +181,30 @@ export default {
               {
                 type: "link",
                 text: "Cleveland(8211)",
-                path: "./8211"
+                path: "?node=8211",
+                name: "8211"
+              },
+              {
+                type: "hr"
+              },
+              {
+                type: "link",
+                text: "Columbus(3886)",
+                path: "?node=3886",
+                name: "3886"
+              },
+              {
+                type: "hr"
+              },
+              {
+                type: "link",
+                text: "DC(8190)",
+                path: "?node=8190",
+                name: "8190"
               }
             ]
+          }],
           },
-          {
-            type: "button",
-            text: "Login",
-            path: "./login",
-            iconRight:
-              '<svg id="i-arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <path d="M22 6 L30 16 22 26 M30 16 L2 16" /> </svg>'
-          }
-        ]              
-      ],
       collapsed: false,
       themes: [
         {
@@ -202,8 +220,13 @@ export default {
       console.log(collapsed)
       this.collapsed = collapsed
     },
-    onItemClick (event, item) {
+    onItemClick (event, item) { 
       console.log('onItemClick')
+    },
+    vnbItemClicked (event, item) {
+      
+      
+      console.log('vnbItemClicked')
     }
   }
 }
@@ -251,4 +274,14 @@ pre {
   padding: 5px;
   overflow: auto;
 }
+.main-navbar-section {
+  background: #fff;
+}
+.vnb {
+  font-family: "Montserrat", sans-serif;
+.custom-section-content {
+    width: 100%;
+}
+}
+
 </style>

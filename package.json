@@ -31,7 +31,8 @@
     },
     "dependencies": {
         "vue": "^2.5.21",
-        "vue-breadcrumbs": "^1.2.0"
+        "vue-breadcrumbs": "^1.2.0",
+        "vue-navigation-bar": "^2.0.0"
     },
     "postcss": {
         "plugins": {
