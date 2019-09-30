@@ -5,9 +5,13 @@ import VueRouter from 'vue-router'
 import VueBreadcrumbs from 'vue-breadcrumbs'
 import VueSidebarMenu from '../src/index.js'
 
-import Dashboard from './components/Dashboard.vue'
-import RouteMap from './components/RouteMap.vue'
-import DriverStatus from './components/DriverStatus.vue'
+// import Dashboard from './components/Dashboard.vue'
+// import RouteMap from './components/RouteMap.vue'
+// import DriverStatus from './components/DriverStatus.vue'
+import Monitor from './components/Monitor.vue'
+import Manage from './components/Manage.vue'
+import Review from './components/Review.vue'
+import Configure from './components/Configure.vue'
 
 Vue.use(VueRouter)
 Vue.use(VueSidebarMenu)
@@ -16,31 +20,48 @@ Vue.use(VueNavigationBar)
 
 const router = new VueRouter({
     routes: [{
-            path: '/Dashboard',
-            component: Dashboard,
-            meta: {
-                breadcrumb: 'Dashboard'
+            path: '/',
+            redirect: {
+                name: 'Monitor'
             }
         },
         {
-            path: '/RouteMap',
-            component: RouteMap,
-            meta: {
-                breadcrumb: 'RouteMap'
-            }
+            path: '/Monitor',
+            name: 'Monitor',
+            component: Monitor
+                // meta: {
+                //     breadcrumb: 'Dashboard'
+                // }
         },
         {
-            path: '/DriverStatus',
-            component: DriverStatus,
-            meta: {
-                breadcrumb: 'DriverStatus'
-            }
+            path: '/Manage',
+            name: 'Manage',
+            component: Manage
+                // meta: {
+                //     breadcrumb: 'RouteMap'
+                // }
+        },
+        {
+            path: '/Review',
+            name: 'Review',
+            component: Review
+                // meta: {
+                //     breadcrumb: 'DriverStatus'
+                // }
+
+        },
+        {
+            path: '/Configure',
+            name: 'Configure',
+            component: Configure
+                // meta: {
+                //     breadcrumb: 'DriverStatus'
+                // }
+
         }
     ]
 
 })
-
-
 
 new Vue({ // eslint-disable-line no-new
     el: '#app',
