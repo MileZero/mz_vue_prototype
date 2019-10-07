@@ -1,11 +1,29 @@
 <template>
-  <div
+  <!-- <div
     id="demo"
     :class="[{'collapsed' : collapsed}]"
+
+  > -->
+  <div
+    id="demo" class="collapsed main-navbar-section dropdown"
   >
     <div class="demo">
       <div class="container">
-        <hr style="margin: 50px 0px;border: 1px solid #e3e3e3;">
+        <vue-navigation-bar
+          :options="navbarOptions"
+          
+          @vnb-item-clicked="vnbItemClicked"
+          
+        >
+        </vue-navigation-bar>
+        <!-- <a style="cursor: pointer; text-decoration: underline" v-on:click="navigate()"></a>
+            <router-link :to="{name: route.name}">
+              {{ route.meta.breadcrumb }}
+              <a v-on:click.name=" "/>
+            </router-link>
+            <!-- <router-link :to="{name: 'RouteMap'}">RouteMap</router-link>
+            <router-link :to="{name: 'DriverStatus' }">DriverStatus</router-link> --> 
+            <!-- <router-link :to="{name: "Dasboard"}" -->
         <router-view />
       </div>
       <sidebar-menu
@@ -16,12 +34,10 @@
         @toggle-collapse="onToggleCollapse"
         @item-click="onItemClick"
       />
-      <vue-navigation-bar
-          :options="navbarOptions"
-          @vnb-item-clicked="vnbItemClicked"
-          
-        >
-        </vue-navigation-bar>
+      <dropdown>
+       @setSelectedOption="setCurrentSelectedOption"
+      <!-- @setSelectedOption="onClick" -->
+      </dropdown>
     </div>
   </div>
 </template>
@@ -154,6 +170,7 @@ export default {
       navbarOptions: {
         elementId: "main-navbar",
         isUsingVueRouter: true,
+        tooltipAnimationType: "shift-away",
         menuOptionsRight: [
           {
             type: "link",
@@ -203,7 +220,8 @@ export default {
                 name: "8190"
               }
             ]
-          }],
+          }
+          ],
           },
       collapsed: false,
       themes: [
@@ -224,15 +242,20 @@ export default {
       console.log('onItemClick')
     },
     vnbItemClicked (event, item) {
-      
-      
       console.log('vnbItemClicked')
+    },
+    setCurrentSelectedOption(option) {
+				this.$emit("setCurrentSelectedOption", option);
+			},
+    navigate() {
+      router.go(-1);
     }
   }
 }
 </script>
 
 <style lang="scss">
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
 
 body,
@@ -241,11 +264,15 @@ html {
   padding: 0;
 }
 
+a{
+  margin: 0 10px;
+}
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
-  background-color: #f2f4f7;
-  color: #262626;
+  background-color: #f7f5f5;
+  color: #272727;
 }
 
 #demo {
@@ -263,20 +290,18 @@ body {
   max-width: 600px;
 }
 .main-navbar-section {
-  background: #fff;
+  background: #ffffff;
 }
 pre {
   font-family: Consolas, monospace;
   color: #000;
-  background: #fff;
+  background: #ffffff;
   border-radius: 2px;
   font-size: 13px;
   padding: 5px;
   overflow: auto;
 }
-.main-navbar-section {
-  background: #fff;
-}
+
 .vnb {
   font-family: "Montserrat", sans-serif;
 .custom-section-content {

@@ -16,6 +16,7 @@
         @toggle-collapse="onToggleCollapse"
         @item-click="onItemClick"
       />
+      <dropdown></dropdown>
     </div>
   </div>
 </template>
