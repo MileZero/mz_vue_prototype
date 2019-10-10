@@ -4,59 +4,50 @@ import VueNavigationBar from 'vue-navigation-bar'
 import VueRouter from 'vue-router'
 import VueBreadcrumbs from 'vue-breadcrumbs'
 import VueSidebarMenu from '../src/index.js'
+import DropDown from '../src/index.js'
 
-// import Dashboard from './components/Dashboard.vue'
-// import RouteMap from './components/RouteMap.vue'
-// import DriverStatus from './components/DriverStatus.vue'
-import Monitor from './components/Monitor.vue'
-import Manage from './components/Manage.vue'
-import Review from './components/Review.vue'
-import Configure from './components/Configure.vue'
+import Dashboard from './components/Dashboard.vue'
+import RouteMap from './components/RouteMap.vue'
+import DriverStatus from './components/DriverStatus.vue'
 
 Vue.use(VueRouter)
 Vue.use(VueSidebarMenu)
 Vue.use(VueBreadcrumbs)
 Vue.use(VueNavigationBar)
+Vue.use(DropDown)
 
 const router = new VueRouter({
     routes: [{
             path: '/',
             redirect: {
-                name: 'Monitor'
+                name: 'Dashboard'
             }
         },
         {
-            path: '/Monitor',
-            name: 'Monitor',
-            component: Monitor
-                // meta: {
-                //     breadcrumb: 'Dashboard'
-                // }
+            path: '/Dashboard',
+            name: 'Dashboard',
+            component: Dashboard,
+            meta: {
+                breadcrumb: [
+                    { name: 'dashboard', link: '/Dashboard' }
+                ]
+            }
         },
         {
-            path: '/Manage',
-            name: 'Manage',
-            component: Manage
-                // meta: {
-                //     breadcrumb: 'RouteMap'
-                // }
+            path: '/RouteMap',
+            name: 'RouteMap',
+            component: RouteMap,
+            meta: {
+                breadcrumb: 'RouteMap'
+            }
         },
         {
-            path: '/Review',
-            name: 'Review',
-            component: Review
-                // meta: {
-                //     breadcrumb: 'DriverStatus'
-                // }
-
-        },
-        {
-            path: '/Configure',
-            name: 'Configure',
-            component: Configure
-                // meta: {
-                //     breadcrumb: 'DriverStatus'
-                // }
+            path: '/DriverStatus',
+            name: 'DriverStatus',
+            component: DriverStatus,
+            meta: {
+                breadcrumb: 'DriverStatus'
+            }
 
         }
     ]
@@ -66,5 +57,11 @@ const router = new VueRouter({
 new Vue({ // eslint-disable-line no-new
     el: '#app',
     router,
+    data: {
+        configOptions: []
+            // selected: "" 
+    },
     render: h => h(App)
+
+
 })

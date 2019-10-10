@@ -1,11 +1,29 @@
 <template>
   <div
-    id="demo"
-    :class="[{'collapsed' : collapsed}]"
+    id="demo" class="collapsed main-navbar-section dropdown"
   >
     <div class="demo">
       <div class="container">
-        <hr style="margin: 50px 0px;border: 1px solid #e3e3e3;">
+        <!-- <vue-navigation-bar
+          :options="navbarOptions"
+          
+          @vnb-item-clicked="vnbItemClicked"
+          
+        >
+        </vue-navigation-bar> -->
+        
+        <a style="cursor: pointer; text-decoration: underline" v-on:click="navigate()"></a>
+            <router-link :to="{name: Dashboard}">Dashboard
+            </router-link>
+            <!-- <router-link :to="{name: 'RouteMap'}">RouteMap</router-link>
+            <router-link :to="{name: 'DriverStatus' }">DriverStatus</router-link> --> 
+            <!-- <router-link :to="{name: "Dasboard"}" -->
+    <div class="right">
+        <ons-toolbar-button onclick="fn.toggleMenu()">
+          <ons-icon icon="ion-navicon, material:md-menu" style="color:#FFF"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      
         <router-view />
       </div>
       <sidebar-menu
@@ -16,12 +34,11 @@
         @toggle-collapse="onToggleCollapse"
         @item-click="onItemClick"
       />
-      <vue-navigation-bar
-          :options="navbarOptions"
-          @vnb-item-clicked="vnbItemClicked"
-          
-        >
-        </vue-navigation-bar>
+      <p align="right">
+      <dropdown
+      @setSelectedOption="setCurrentSelectedOption"
+      />
+      </p>
     </div>
   </div>
 </template>
@@ -154,10 +171,11 @@ export default {
       navbarOptions: {
         elementId: "main-navbar",
         isUsingVueRouter: true,
+        tooltipAnimationType: "shift-away",
         menuOptionsRight: [
           {
             type: "link",
-            text: "NodeNames",
+            // text: "NodeNames",
           subMenuOptions: [
               {
                 isLinkAction: true,
@@ -203,7 +221,9 @@ export default {
                 name: "8190"
               }
             ]
-          }],
+          }
+          ],
+
           },
       collapsed: false,
       themes: [
@@ -224,15 +244,22 @@ export default {
       console.log('onItemClick')
     },
     vnbItemClicked (event, item) {
-      
-      
       console.log('vnbItemClicked')
+    },
+    setCurrentSelectedOption(option) {
+    //     this.$emit("setCurrentSelectedOption", option)
+    //     this.$emit("setSelectedOption", option);
+     console.log(option)
+		},
+    navigate() {
+      router.go(-1);
     }
   }
 }
 </script>
 
 <style lang="scss">
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
 
 body,
@@ -241,11 +268,15 @@ html {
   padding: 0;
 }
 
+a{
+  margin: 0 10px;
+}
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
-  background-color: #f2f4f7;
-  color: #262626;
+  background-color: #f7f5f5;
+  color: #272727;
 }
 
 #demo {
@@ -263,20 +294,18 @@ body {
   max-width: 600px;
 }
 .main-navbar-section {
-  background: #fff;
+  background: #ffffff;
 }
 pre {
   font-family: Consolas, monospace;
   color: #000;
-  background: #fff;
+  background: #ffffff;
   border-radius: 2px;
   font-size: 13px;
   padding: 5px;
   overflow: auto;
 }
-.main-navbar-section {
-  background: #fff;
-}
+
 .vnb {
   font-family: "Montserrat", sans-serif;
 .custom-section-content {
