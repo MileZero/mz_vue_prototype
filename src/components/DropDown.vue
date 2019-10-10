@@ -8,8 +8,7 @@
 		<div class="dropdown-label-container">
 			<div class="dropdown-label">
         <span class="text">
-          {{ (config && config.prefix ? config.prefix : "") + " "
-          }}{{ config && config.placeholder ? config.placeholder : placeholder }}
+            {{placeholder}}
         </span>
 				<i class="angle-down" :class="{ toggled: isExpanded }"></i>
 			</div>
@@ -117,8 +116,8 @@
 				this.isExpanded = !this.isExpanded;
 			},
 			setCurrentSelectedOption(option) {
-				// this.$emit("setSelectedOption", option);
 				console.log("dropdown",option.value);
+				this.placeholder = option.value
 			},
 			setConfigData() {
 				if (this.config) {
