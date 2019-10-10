@@ -28,7 +28,9 @@ const router = new VueRouter({
             name: 'Dashboard',
             component: Dashboard,
             meta: {
-                breadcrumb: 'Dashboard'
+                breadcrumb: [
+                    { name: 'dashboard', link: '/Dashboard' }
+                ]
             }
         },
         {
@@ -55,7 +57,11 @@ const router = new VueRouter({
 new Vue({ // eslint-disable-line no-new
     el: '#app',
     router,
+    data: {
+        configOptions: []
+            // selected: "" 
+    },
     render: h => h(App)
-    // components: { dropdown
+
 
 })

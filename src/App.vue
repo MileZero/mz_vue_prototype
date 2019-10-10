@@ -1,29 +1,29 @@
 <template>
-  <!-- <div
-    id="demo"
-    :class="[{'collapsed' : collapsed}]"
-
-  > -->
   <div
     id="demo" class="collapsed main-navbar-section dropdown"
   >
     <div class="demo">
       <div class="container">
-        <vue-navigation-bar
+        <!-- <vue-navigation-bar
           :options="navbarOptions"
           
           @vnb-item-clicked="vnbItemClicked"
           
         >
-        </vue-navigation-bar>
-        <!-- <a style="cursor: pointer; text-decoration: underline" v-on:click="navigate()"></a>
-            <router-link :to="{name: route.name}">
-              {{ route.meta.breadcrumb }}
-              <a v-on:click.name=" "/>
+        </vue-navigation-bar> -->
+        
+        <a style="cursor: pointer; text-decoration: underline" v-on:click="navigate()"></a>
+            <router-link :to="{name: Dashboard}">Dashboard
             </router-link>
             <!-- <router-link :to="{name: 'RouteMap'}">RouteMap</router-link>
             <router-link :to="{name: 'DriverStatus' }">DriverStatus</router-link> --> 
             <!-- <router-link :to="{name: "Dasboard"}" -->
+    <div class="right">
+        <ons-toolbar-button onclick="fn.toggleMenu()">
+          <ons-icon icon="ion-navicon, material:md-menu" style="color:#FFF"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      
         <router-view />
       </div>
       <sidebar-menu
@@ -34,10 +34,11 @@
         @toggle-collapse="onToggleCollapse"
         @item-click="onItemClick"
       />
-      <dropdown>
-       @setSelectedOption="setCurrentSelectedOption"
-      <!-- @setSelectedOption="onClick" -->
-      </dropdown>
+      <p align="right">
+      <dropdown
+      @setSelectedOption="setCurrentSelectedOption"
+      />
+      </p>
     </div>
   </div>
 </template>
@@ -174,7 +175,7 @@ export default {
         menuOptionsRight: [
           {
             type: "link",
-            text: "NodeNames",
+            // text: "NodeNames",
           subMenuOptions: [
               {
                 isLinkAction: true,
@@ -222,6 +223,7 @@ export default {
             ]
           }
           ],
+
           },
       collapsed: false,
       themes: [
@@ -245,8 +247,10 @@ export default {
       console.log('vnbItemClicked')
     },
     setCurrentSelectedOption(option) {
-				this.$emit("setCurrentSelectedOption", option);
-			},
+    //     this.$emit("setCurrentSelectedOption", option)
+    //     this.$emit("setSelectedOption", option);
+     console.log(option)
+		},
     navigate() {
       router.go(-1);
     }

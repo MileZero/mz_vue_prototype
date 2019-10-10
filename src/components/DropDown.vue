@@ -21,6 +21,9 @@
 				class="option"
 				@click="setCurrentSelectedOption(option);"
 			>{{ option.value }}
+			<!-- <option v-for="option in configOptions" v-bind:value="option">
+				{{ option.value }} -->
+			<!-- </option> -->
 			</div>
 		</div>
 	</div>
@@ -114,7 +117,8 @@
 				this.isExpanded = !this.isExpanded;
 			},
 			setCurrentSelectedOption(option) {
-				this.$emit("setSelectedOption", option);
+				// this.$emit("setSelectedOption", option);
+				console.log("dropdown",option.value);
 			},
 			setConfigData() {
 				if (this.config) {
