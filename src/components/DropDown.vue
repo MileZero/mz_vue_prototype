@@ -20,9 +20,6 @@
 				class="option"
 				@click="setCurrentSelectedOption(option);"
 			>{{ option.value }}
-			<!-- <option v-for="option in configOptions" v-bind:value="option">
-				{{ option.value }} -->
-			<!-- </option> -->
 			</div>
 		</div>
 	</div>
@@ -117,7 +114,11 @@
 			},
 			setCurrentSelectedOption(option) {
 				console.log("dropdown",option.value);
+<<<<<<< HEAD
 				this.placeholder = option.value
+=======
+				this.placeholder = option.value;
+>>>>>>> 36980da122123f152c5319f509a9087d5c14637a
 			},
 			setConfigData() {
 				if (this.config) {
