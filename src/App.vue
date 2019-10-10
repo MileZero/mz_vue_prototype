@@ -18,11 +18,6 @@
             <!-- <router-link :to="{name: 'RouteMap'}">RouteMap</router-link>
             <router-link :to="{name: 'DriverStatus' }">DriverStatus</router-link> --> 
             <!-- <router-link :to="{name: "Dasboard"}" -->
-    <div class="right">
-        <ons-toolbar-button onclick="fn.toggleMenu()">
-          <ons-icon icon="ion-navicon, material:md-menu" style="color:#FFF"></ons-icon>
-        </ons-toolbar-button>
-      </div>
       
         <router-view />
       </div>
