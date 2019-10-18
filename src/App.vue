@@ -13,12 +13,9 @@
         </vue-navigation-bar> -->
         
         <a style="cursor: pointer; text-decoration: underline" v-on:click="navigate()"></a>
-            <router-link :to="{name: Dashboard}">Dashboard
-            </router-link>
-            <!-- <router-link :to="{name: 'RouteMap'}">RouteMap</router-link>
-            <router-link :to="{name: 'DriverStatus' }">DriverStatus</router-link> --> 
-            <!-- <router-link :to="{name: "Dasboard"}" -->
-      
+            <router-link v-bind:to="{name: 'Dashboard'}">Dashboard</router-link>
+             <router-link :to="{name: 'RouteMap'}">RouteMap</router-link>
+            <router-link :to="{name: 'DriverStatus' }">DriverStatus</router-link>
         <router-view />
       </div>
       <sidebar-menu
@@ -75,7 +72,7 @@ export default {
         {
           href: '/Manage',
           title: 'Manage',
-          icon: 'fa fa-meetup',
+          icon: 'fa fa-share-alt',
           child: [
             {
               href: '/Manage/Metrics',
@@ -241,13 +238,11 @@ export default {
     vnbItemClicked (event, item) {
       console.log('vnbItemClicked')
     },
-    setCurrentSelectedOption(option) {
-    //     this.$emit("setCurrentSelectedOption", option)
-    //     this.$emit("setSelectedOption", option);
-     console.log(option)
-		},
+
+    
     navigate() {
       router.go(-1);
+      console.log('on-click-link')
     }
   }
 }
