@@ -6,9 +6,11 @@ import VueBreadcrumbs from 'vue-breadcrumbs'
 import VueSidebarMenu from '../src/index.js'
 import DropDown from '../src/index.js'
 
-import Dashboard from './components/Dashboard.vue'
-import RouteMap from './components/RouteMap.vue'
-import DriverStatus from './components/DriverStatus.vue'
+import dashboard from './components/dashboard.vue'
+import routemap from './components/RouteMap.vue'
+import driverstatus from './components/DriverStatus.vue'
+import fleet from './components/fleet.vue'
+import label from './components/label.vue'
 
 Vue.use(VueRouter)
 Vue.use(VueSidebarMenu)
@@ -20,35 +22,50 @@ const router = new VueRouter({
     routes: [{
             path: '/',
             redirect: {
-                name: 'Dashboard'
+                name: 'dashboard'
             }
         },
         {
-            path: '/Dashboard',
-            name: 'Dashboard',
-            component: Dashboard,
+            path: '/Monitor/dashboard',
+            name: 'dashboard',
+            component: dashboard,
+            // props: true
             meta: {
-                breadcrumb: [
-                    { name: 'dashboard', link: '/Dashboard' }
-                ]
+                label: 'dashboard'
             }
         },
         {
-            path: '/RouteMap',
+            path: '/Monitor/RouteMap',
             name: 'RouteMap',
-            component: RouteMap,
+            component: routemap,
             meta: {
-                breadcrumb: 'RouteMap'
+                label: 'RouteMap'
             }
         },
         {
-            path: '/DriverStatus',
+            path: '/Monitor/DriverStatus',
             name: 'DriverStatus',
-            component: DriverStatus,
+            component: driverstatus,
             meta: {
-                breadcrumb: 'DriverStatus'
+                label: 'DriverStatus'
             }
 
+        },
+        {
+            path: '/Configure/Fleet',
+            name: 'Fleet',
+            component: fleet,
+            meta: {
+                label: 'fleet'
+            }
+        },
+        {
+            path: '/Configure/Fleet/label',
+            name: 'label',
+            component: label,
+            meta: {
+                label: 'label'
+            }
         }
     ]
 
@@ -57,5 +74,12 @@ const router = new VueRouter({
 new Vue({ // eslint-disable-line no-new
     el: '#app',
     router,
+    // data: {
+    //     monitor: [
+    //         { id: 1, param: 'Dashboard' },
+    //         { id: 2, param: 'RouteMap' },
+    //         { id: 3, param: 'DriverStatus' }
+    //     ]
+    // },
     render: h => h(App)
 })

@@ -10,12 +10,7 @@
           @vnb-item-clicked="vnbItemClicked"
           
         >
-        </vue-navigation-bar> -->
-        
-        <a style="cursor: pointer; text-decoration: underline" v-on:click="navigate()"></a>
-            <router-link v-bind:to="{name: 'Dashboard'}">Dashboard</router-link>
-             <router-link :to="{name: 'RouteMap'}">RouteMap</router-link>
-            <router-link :to="{name: 'DriverStatus' }">DriverStatus</router-link>
+        </vue-navigation-bar> --> 
         <router-view />
       </div>
       <sidebar-menu
@@ -58,14 +53,17 @@ export default {
             {
               href: '/Monitor/Dashboard',
               title: 'Dashboard'
+          
             },
             {
-              href: '/Monitor/Route-Map',
-              title: 'Route-Map'
+              href: '/Monitor/RouteMap',
+              title: 'RouteMap'
+              
             },
             {
-              href: '/Monitor/Driver-status',
-              title: 'Driver-Status'
+              href: '/Monitor/DriverStatus',
+              title: 'DriverStatus'
+             
             }
           ]
         },
@@ -238,11 +236,15 @@ export default {
     vnbItemClicked (event, item) {
       console.log('vnbItemClicked')
     },
-
-    
     navigate() {
       router.go(-1);
       console.log('on-click-link')
+    },
+    displayRoute() {
+      if (this.data.meta.display === undefined || this.data.meta.display) {
+        return true;
+      }
+      return false;
     }
   }
 }
