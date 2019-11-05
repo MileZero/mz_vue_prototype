@@ -1,6 +1,17 @@
 {
   "presets": [
-    ["env", { "modules": false }],
-    "stage-3"
-  ]
-}
+    ["@babel/env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["> 1%", "last 3 versions", "not ie <= 8"]
+      }
+    }]
+  ],
+    "plugins": ["transform-vue-jsx", "@babel/plugin-transform-runtime"],
+    "env": {
+      "test": {
+        "presets": ["@babel/preset-env"],
+        "plugins": ["transform-vue-jsx", "transform-es2015-modules-commonjs", "dynamic-import-node"]
+      }
+    }
+  }
