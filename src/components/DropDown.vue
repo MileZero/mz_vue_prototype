@@ -120,7 +120,11 @@
 			setCurrentSelectedOption(option) {
 				console.log("dropdown",option.value);
 				this.placeholder = option.value;
+				this.$emit('item-click', event, item)
 			},
+			onItemClick (event, item) {
+      this.$emit('item-click', event, item)
+    },
 			setConfigData() {
 				if (this.config) {
 					this.configOptions = this.config.options;
