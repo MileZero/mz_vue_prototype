@@ -24,6 +24,7 @@
       <p align="right">
       <dropdown
       @setSelectedOption="setCurrentSelectedOption"
+      @item-click="onItemClick"
       />
       </p>
     </div>
