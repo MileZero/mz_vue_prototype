@@ -18,6 +18,7 @@
       />
       <dropdown></dropdown>
     </div>
+    <datepicker name="date"></datepicker>
   </div>
 </template>
 
