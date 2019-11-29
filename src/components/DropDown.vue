@@ -34,23 +34,23 @@
 				optionHeight: 35,
 				configOptions: [
 					{
-						href:'/node?7585',
+						href:'7585',
 						value: "Albany(7585)"
 					},
 					{
-						href:'/node?3941',
+						href:'3941',
 						value: "Cincinnati(3941)"
 					},
 					{
-						href:'/node?8211',
+						href:'8211',
 						value: "Cleveland(8211)"
                     },
                     {
-						href:'/node?3886',
+						href:'3886',
 						value: "Columbus(3886)"
                     },
                     {
-						href:'/node?8190',
+						href:'8190',
 						value: "DC(8190)"
                     }
 				],
@@ -120,7 +120,6 @@
 			setCurrentSelectedOption(option) {
 				console.log("dropdown",option.value);
 				this.placeholder = option.value;
-				this.$emit('item-click', event, item)
 			},
 			onItemClick (event, item) {
       this.$emit('item-click', event, item)

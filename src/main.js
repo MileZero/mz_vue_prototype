@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import VueBreadcrumbs from 'vue-breadcrumbs'
 import VueSidebarMenu from '../src/index.js'
 import DropDown from '../src/index.js'
+import axios from 'axios'
 
 import dashboard from './components/dashboard.vue'
 import routemap from './components/RouteMap.vue'
@@ -74,12 +75,23 @@ const router = new VueRouter({
 new Vue({ // eslint-disable-line no-new
     el: '#app',
     router,
-    // data: {
-    //     monitor: [
-    //         { id: 1, param: 'Dashboard' },
-    //         { id: 2, param: 'RouteMap' },
-    //         { id: 3, param: 'DriverStatus' }
-    //     ]
-    // },
+    data() {
+        return {
+            configOptions: [],
+            options: ' '
+        }
+    },
+    headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET',
+        'Access-Control-Allow-Headers': 'Access-Control-Allow-Methods, Access-Control-Allow-Origin, Origin, Accept, Content-Type',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    mounted() {
+        axios
+            .get('http://worldview.prod.milezero.com/wv/api/search/org/3c897e84-3957-4958-b54d-d02c01b14f15/containers/type/FACILITY')
+            .then(response => console.log(response))
+    },
     render: h => h(App)
 })
