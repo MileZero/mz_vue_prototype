@@ -1,13 +1,14 @@
 # mz_vue_prototype
+Prototype refactoring of MileVision utilizing Vue/VueX.
 
 ## Project setup
 ```
-npm install
+npm i
 ```
 
-### Compiles and hot-reloads for development
+### Compiles & hot reloads for development
 ```
-npm run serve
+npm run dev
 ```
 
 ### Compiles and minifies for production
