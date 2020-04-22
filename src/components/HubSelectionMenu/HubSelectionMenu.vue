@@ -1,12 +1,15 @@
 <template>
-  <div class="HubSelectionMenu">
+  <div class="MenuBarOption HubSelectionMenu">
     <div class="CompanyLogo" />
+      <div class="HubSelectionMenuContent">
+      </div>
   </div>
 </template>
 
 <script>
-    export default {
-        props: {
-        },
-    };
+  import './_HubSelectionMenu.scss';
+  export default {
+    props: {
+    },
+  };
 </script>

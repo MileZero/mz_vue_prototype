@@ -36,6 +36,13 @@ module.exports = {
         }
       },
       {
+        test: /\.(svg|png)?$/,
+        exclude: /node_modules/,
+        use: [
+          'url-loader',
+        ]
+      },
+      {
         test: /\.ts$/,
         loader: 'ts-loader',
         options: { appendTsSuffixTo: [/\.vue$/] }
@@ -49,21 +56,25 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            'scss': [
-              'vue-style-loader',
-              'css-loader',
-              'sass-loader'
-            ],
-            'sass': [
-              'vue-style-loader',
-              'css-loader',
-              'sass-loader?indentedSyntax'
-              ],
-          }
-        }
+        use: [
+          {
+            loader: 'vue-loader',
+            options: {
+              loaders: {
+                'scss': [
+                  'vue-style-loader',
+                  'css-loader',
+                  'sass-loader'
+                ],
+                'sass': [
+                  'vue-style-loader',
+                  'css-loader',
+                  'sass-loader?indentedSyntax'
+                 ],
+              },
+            }
+          },
+        ],
       },
     ],
   },

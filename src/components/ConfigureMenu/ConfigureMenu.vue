@@ -1,11 +1,14 @@
 <template>
-  <div class="ConfigureMenu">
+  <div class="MenuBarOption ConfigureMenu">
+    <div class="ConfigureMenuContent">
+    </div>
   </div>
 </template>
 
 <script>
-    export default {
-        props: {
-        },
-    };
+  import './_ConfigureMenu.scss';
+  export default {
+    props: {
+    },
+  };
 </script>

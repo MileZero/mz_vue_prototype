@@ -4,8 +4,9 @@
 </template>
 
 <script>
-    export default {
-        props: {
-        },
-    };
+  import './_ContentDisplay.scss';
+  export default {
+    props: {
+    },
+  };
 </script>

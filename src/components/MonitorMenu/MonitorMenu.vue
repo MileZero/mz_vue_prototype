@@ -1,11 +1,14 @@
 <template>
-  <div class="MonitorMenu">
+  <div class="MenuBarOption MonitorMenu">
+    <div class="MonitorMenuContent">
+    </div>
   </div>
 </template>
 
 <script>
-    export default {
-        props: {
-        },
-    };
+  import './_MonitorMenu.scss';
+  export default {
+    props: {
+    },
+  };
 </script>

@@ -1,14 +1,3 @@
-.MonitorMenu {
-    // Vars
-
-    // Support
-
-    // Module
-    & {
-        //
-    }
-
-    // Facets
-
-    // States
+div.MonitorMenu::before {
+   background-position: 0 0;
 }

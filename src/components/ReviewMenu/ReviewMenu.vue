@@ -1,11 +1,14 @@
 <template>
-  <div class="ReviewMenu">
+  <div class="MenuBarOption ReviewMenu">
+    <div class="ReviewMenuContent">
+    </div>
   </div>
 </template>
 
 <script>
-    export default {
-        props: {
-        },
-    };
+  import './_ReviewMenu.scss';
+  export default {
+    props: {
+    },
+  };
 </script>

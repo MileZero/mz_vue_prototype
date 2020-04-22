@@ -1,11 +1,12 @@
 <template>
-  <div class="ManageMenu">
+  <div class="MenuBarOption ManageMenu">
   </div>
 </template>
 
 <script>
-    export default {
-        props: {
-        },
-    };
+  import './_ManageMenu.scss';
+  export default {
+    props: {
+    },
+  };
 </script>
