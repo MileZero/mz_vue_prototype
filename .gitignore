@@ -2,7 +2,7 @@
 node_modules
 /dist
 build.js
-
+*.hot-update*
 # local env files
 .env.local
 .env.*.local
@@ -20,4 +20,3 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
-  

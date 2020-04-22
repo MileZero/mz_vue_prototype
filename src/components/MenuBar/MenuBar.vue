@@ -1,13 +1,12 @@
 <template>
   <div class="MenuBar">
     <div class="Content-sidebar">
-      <div id="menu" class="Content-menu">
-        <HubSelectionMenu />
-        <MonitorMenu />
-        <ManageMenu />
-        <ReviewMenu />
-        <ConfigureMenu />
-      </div>
+      <HubSelectionMenu />
+      <MonitorMenu />
+      <ManageMenu />
+      <ReviewMenu />
+      <ConfigureMenu />
+      <PackageSearch />
     </div>
   </div>
 </template>
@@ -18,6 +17,7 @@
   import ManageMenu from '../ManageMenu/ManageMenu.vue';
   import MonitorMenu from '../MonitorMenu/MonitorMenu.vue';
   import ReviewMenu from '../ReviewMenu/ReviewMenu.vue';
+  import PackageSearch from '../PackageSearch/PackageSearch.vue';
   import './_MenuBar.scss';
 
   export default {
@@ -30,6 +30,7 @@
       ManageMenu,
       MonitorMenu,
       ReviewMenu,
+      PackageSearch,
       }
   };
 </script>

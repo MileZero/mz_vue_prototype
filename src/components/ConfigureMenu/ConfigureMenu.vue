@@ -1,6 +1,7 @@
 <template>
-  <div class="MenuBarOption ConfigureMenu">
-    <div class="ConfigureMenuContent">
+  <div class="MenuBarOption ConfigureMenu" v-on:click="dropdown">
+    <div class=MenuBarOptionLabel>Configure</div>
+    <div v-if="dropdownSelected" class="ConfigureMenuContent">Dropdown!
     </div>
   </div>
 </template>
@@ -10,5 +11,15 @@
   export default {
     props: {
     },
+    data () {
+      return {
+        dropdownSelected: false,
+      }
+    },
+    methods: {
+      dropdown () {
+        this.dropdownSelected = !this.dropdownSelected;
+      }
+    }
   };
 </script>

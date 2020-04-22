@@ -36,21 +36,41 @@ export default {
   transition: background .33s;
   background: 0 0;
   border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.MenuBarOptionLabel {
+  color: white;
+  font-weight: bold;
+  margin-top: 16px;
+  flex: none;
+  font-size: 14px;
 }
 
 .MenuBarOption::before {
   content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 50px;
   height: 50px;
-  margin-left: -25px;
-  margin-top: -20px;
   background: url(./assets/menu-icons.png);
   background-size: 350px 50px;
   background-repeat: no-repeat;
   opacity: .32;
+  transform: scale(0.5);
   transition: opacity .33s;
+  flex: 0 0 auto;
+}
+
+.MenuBarOptionLabel::after {
+  content: "";
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  align-self: flex-end;
+  flex: 0 0 auto;
 }
 </style>

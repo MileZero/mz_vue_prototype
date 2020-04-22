@@ -10,6 +10,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
+    writeToDisk: true,
     hot: true,
   },
   resolve: {
