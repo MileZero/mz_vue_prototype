@@ -7,6 +7,12 @@
       <ReviewMenu />
       <ConfigureMenu />
       <PackageSearch />
+      <div class="MenuBarOption SettingsMenu">
+          <div class=MenuBarOptionLabel>SETTINGS</div>
+      </div>
+      <div class="MenuBarOption LogoutMenu">
+          <div class=MenuBarOptionLabel>LOGOUT</div>
+      </div>
     </div>
   </div>
 </template>

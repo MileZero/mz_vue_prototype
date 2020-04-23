@@ -1,12 +1,13 @@
 div.ArrowContainer {
   width: 20px;
   height: 20px;
-  transform: scale(0.7);
+  transform: scale(0.65);
   display: inline-block;
   position: relative;
-  margin-top: 2px;
+  margin-top: 15px;
   margin-left: auto;
-  margin-right: 5px;
+  margin-right: 8px;
+  margin-bottom: auto;
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
 }

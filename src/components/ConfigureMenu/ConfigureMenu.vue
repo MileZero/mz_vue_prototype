@@ -1,21 +1,45 @@
 <template>
   <div class="MenuBarOption ConfigureMenu MenuDropDown" v-on:click="dropdown">
-    <div class=MenuBarOptionLabel>Configure</div>
-    <div v-if="dropdownSelected" class="ConfigureMenuContent"></div>
+    <div class=MenuBarOptionLabel>CONFIGURE</div>
     <DropDownArrow :isSelected="dropdownSelected" />
-    </div>
+    <div v-if="dropdownSelected" class="FlexBreak"></div>
+    <transition name="SlideDown">
+      <ul v-if="dropdownSelected" class="MenuOptionsList">
+        <li class="MenuOptionsListItem" v-for="option in MenuOptions" :key="option.id">{{option.title}}</li>
+      </ul>
+    </transition>
   </div>
 </template>
 
 <script>
   import './_ConfigureMenu.scss';
   import DropDownArrow from '../DropDownArrow/DropDownArrow.vue';
+
+  const MenuOptions = {
+    Workforce: {
+      title: 'Workforce',
+      endpoint: '',
+      id: 1,
+    },
+    Fleet: {
+      title: 'Fleet',
+      endpoint: '',
+      id: 2,
+    },
+    Warehouse: {
+      title: 'Warehouse',
+      endpoint: '',
+      id: 3,
+    },
+  };
+
   export default {
     props: {
     },
     data () {
       return {
         dropdownSelected: false,
+        MenuOptions,
       }
     },
     methods: {

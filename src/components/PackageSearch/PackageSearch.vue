@@ -1,6 +1,6 @@
 <template>
   <div class="MenuBarOption PackageSearch">
-    <div class=MenuBarOptionLabel>Search</div>
+    <div class=MenuBarOptionLabel>SEARCH</div>
   </div>
 </template>
 
