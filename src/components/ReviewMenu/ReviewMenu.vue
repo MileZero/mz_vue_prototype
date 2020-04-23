@@ -1,13 +1,14 @@
 <template>
-  <div class="MenuBarOption ReviewMenu" v-on:click="dropdown">
+  <div class="MenuBarOption ReviewMenu MenuDropDown" v-on:click="dropdown">
     <div class=MenuBarOptionLabel>Review</div>
-    <div class="ReviewMenuContent" v-if="dropdownSelected">Dropdown!
-    </div>
+    <div class="ReviewMenuContent" v-if="dropdownSelected"></div>
+        <DropDownArrow :isSelected="dropdownSelected" />
   </div>
 </template>
 
 <script>
   import './_ReviewMenu.scss';
+  import DropDownArrow from '../DropDownArrow/DropDownArrow.vue';
   export default {
     props: {
     },
@@ -20,6 +21,9 @@
       dropdown () {
         this.dropdownSelected = !this.dropdownSelected;
       }
-    }
+    },
+    components: {
+      DropDownArrow,
+    },
   };
 </script>

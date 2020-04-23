@@ -1,13 +1,14 @@
 <template>
-  <div class="MenuBarOption ManageMenu" v-on:click="dropdown">
-      <div class=MenuBarOptionLabel>Manage</div>
-        <div v-if="dropdownSelected" class="ManageMenuContent">Dropdown!
-        </div>
+  <div class="MenuBarOption ManageMenu MenuDropDown" v-on:click="dropdown">
+    <div class=MenuBarOptionLabel>Manage</div>
+      <div v-if="dropdownSelected" class="ManageMenuContent"></div>
+      <DropDownArrow :isSelected="dropdownSelected" />
   </div>
 </template>
 
 <script>
   import './_ManageMenu.scss';
+  import DropDownArrow from '../DropDownArrow/DropDownArrow.vue';
   export default {
     props: {
     },
@@ -20,6 +21,9 @@
       dropdown () {
         this.dropdownSelected = !this.dropdownSelected;
       }
-    }
+    },
+    components: {
+      DropDownArrow,
+    },
   };
 </script>

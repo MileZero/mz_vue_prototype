@@ -1,13 +1,14 @@
 <template>
-  <div class="MenuBarOption MonitorMenu" v-on:click="dropdown">
+  <div class="MenuBarOption MonitorMenu MenuDropDown" v-on:click="dropdown">
     <div class=MenuBarOptionLabel>Monitor</div>
-    <div class="MonitorMenuContent" v-if="dropdownSelected">Dropdown!
-    </div>
+    <div class="MonitorMenuContent" v-if="dropdownSelected"></div>
+    <DropDownArrow :isSelected="dropdownSelected" />
   </div>
 </template>
 
 <script>
   import './_MonitorMenu.scss';
+  import DropDownArrow from '../DropDownArrow/DropDownArrow.vue';
   export default {
     props: {
     },
@@ -20,6 +21,9 @@
       dropdown () {
         this.dropdownSelected = !this.dropdownSelected;
       }
-    }
+    },
+    components: {
+      DropDownArrow,
+    },
   };
 </script>
