@@ -1,14 +1,29 @@
-.UserMenu {
-    // Vars
+div.UserMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-right: 20px;
+}
 
-    // Support
+div.UserInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  flex-wrap: wrap;
+}
 
-    // Module
-    & {
-        //
-    }
+div.UserInfoContainer::before {
+  background-image: url('../../assets/logo.svg');
+  background-repeat: no-repeat;
+  content: "";
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
 
-    // Facets
-
-    // States
+div.UserName {
+  margin-top: 5px;
 }
