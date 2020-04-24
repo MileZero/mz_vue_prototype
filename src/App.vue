@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <TopNavBar />
     <MenuBar />
     <ContentDisplay />
   </div>
@@ -7,11 +8,13 @@
 
 <script>
 import MenuBar from './components/MenuBar/MenuBar.vue';
+import TopNavBar from './components/TopNavBar/TopNavBar.vue';
 import ContentDisplay from './components/ContentDisplay/ContentDisplay.vue';
 
 export default {
   name: 'App',
   components: {
+    TopNavBar,
     MenuBar,
     ContentDisplay,
   },
@@ -19,6 +22,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: "Roboto",sans-serif;
   -webkit-font-smoothing: antialiased;

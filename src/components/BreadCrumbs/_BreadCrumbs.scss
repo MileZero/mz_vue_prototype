@@ -1,0 +1,21 @@
+div.BreadCrumbsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-left: -60px;
+}
+
+div.BreadCrumb {
+  margin-right: -5px;
+  margin-bottom: 10px;
+}
+
+div.BreadCrumb > div.ArrowContainer {
+  margin-bottom: -5px;
+  margin-left: -6px;
+}
+
+div.BreadCrumb > div.ArrowContainer > div.Arrow {
+  background-color: black;
+}

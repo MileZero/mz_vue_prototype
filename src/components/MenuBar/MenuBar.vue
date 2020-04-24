@@ -1,7 +1,6 @@
 <template>
   <div class="MenuBar">
     <div class="Content-sidebar">
-      <HubSelectionMenu />
       <MonitorMenu />
       <ManageMenu />
       <ReviewMenu />

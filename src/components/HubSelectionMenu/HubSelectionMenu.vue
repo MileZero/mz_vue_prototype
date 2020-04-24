@@ -1,6 +1,5 @@
 <template>
-  <div class="MenuBarOption HubSelectionMenu">
-    <div class="CompanyLogo" />
+  <div class="HubSelectionMenu">
       <div class="HubSelectionMenuContent">
       </div>
   </div>
