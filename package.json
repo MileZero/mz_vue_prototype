@@ -3,14 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --mode development --hot",
+    "devNode": "nodemon src/service/server/index.js",
+    "devWebpack": "webpack-dev-server --mode development --hot",
     "prod": "webpack --mode production",
-    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.7.0",
+    "body-parser": "^1.19.0",
     "core-js": "^3.6.4",
+    "express": "^4.17.1",
+    "express-openid-connect": "^1.0.1",
+    "express-session": "^1.17.1",
+    "helmet": "^3.22.0",
+    "node": "^14.0.0",
     "vue": "^2.6.11",
+    "vue-router": "^3.1.6",
     "vuex": "^3.2.0"
   },
   "devDependencies": {
@@ -24,7 +32,9 @@
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",
+    "morgan": "^1.10.0",
     "node-sass": "^4.13.1",
+    "nodemon": "^2.0.3",
     "sass-loader": "^8.0.2",
     "ts-loader": "^7.0.1",
     "typescript": "^3.8.3",

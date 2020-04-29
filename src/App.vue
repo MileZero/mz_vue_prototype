@@ -1,8 +1,10 @@
 <template>
-  <div id="app">
-    <TopNavBar />
-    <MenuBar />
-    <ContentDisplay />
+  <div wid="app">
+    <div v-if="!$auth.loading">
+      <TopNavBar v-if="$auth.isAuthenticated"/>
+      <MenuBar v-if="$auth.isAuthenticated"/>
+      <ContentDisplay v-if="$auth.isAuthenticated"/>
+    </div>
   </div>
 </template>
 
@@ -18,6 +20,11 @@ export default {
     MenuBar,
     ContentDisplay,
   },
+  methods: {
+    login() {
+      this.$auth.loginWithRedirect();
+    },
+  }
 };
 </script>
 

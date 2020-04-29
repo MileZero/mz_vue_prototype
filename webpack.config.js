@@ -12,6 +12,7 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'public'),
     writeToDisk: true,
     hot: true,
+    port: 3000,
   },
   resolve: {
     alias: {
