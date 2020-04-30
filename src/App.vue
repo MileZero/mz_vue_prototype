@@ -13,7 +13,6 @@ import './_GlobalStyles.scss';
 import MenuBar from './components/MenuBar/MenuBar';
 import TopNavBar from './components/TopNavBar/TopNavBar';
 import ContentDisplay from './components/ContentDisplay/ContentDisplay';
-
 export default {
   name: 'App',
   components: {
@@ -22,10 +21,7 @@ export default {
     ContentDisplay,
   },
   methods: {
-    login() {
-      this.$auth.loginWithRedirect();
-    },
-  }
+  },
 };
 </script>
 

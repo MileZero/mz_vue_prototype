@@ -9,7 +9,7 @@
       <div class="MenuBarOption SettingsMenu">
           <div class=MenuBarOptionLabel>SETTINGS</div>
       </div>
-      <div class="MenuBarOption LogoutMenu">
+      <div class="MenuBarOption LogoutMenu" @click="logout">
           <div class=MenuBarOptionLabel>LOGOUT</div>
       </div>
     </div>
@@ -36,6 +36,13 @@
       MonitorMenu,
       ReviewMenu,
       PackageSearch,
-      }
+      },
+    methods: {
+      logout() {
+        this.$auth.logout({
+          returnTo: window.location.origin
+        });
+      },
+    }
   };
 </script>
