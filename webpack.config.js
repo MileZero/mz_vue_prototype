@@ -5,12 +5,10 @@ module.exports = {
   entry: path.resolve(__dirname, './src/main.js'),
   output: {
     path: path.resolve(__dirname, 'public'),
-    publicPath: './',
     filename: 'build.js'
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
-    writeToDisk: true,
     port: 3000,
   },
   resolve: {
