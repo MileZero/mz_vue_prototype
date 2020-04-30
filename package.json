@@ -5,7 +5,7 @@
   "scripts": {
     "devNode": "nodemon src/service/server/index.js",
     "devWebpack": "webpack-dev-server --mode development --hot",
-    "prod": "webpack --mode production",
+    "buildProd": "webpack --mode production",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
