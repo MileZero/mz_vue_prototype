@@ -11,9 +11,12 @@
 </template>
 
 <script>
-  import './_UserMenu.scss';
   export default {
       props: {
       },
   };
 </script>
+
+<style lang="scss" scoped>
+  @import "./_UserMenu.scss";
+</style>

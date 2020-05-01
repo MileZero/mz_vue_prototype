@@ -8,7 +8,6 @@
 
 <script>
   import DropDownArrow from '../DropDownArrow/DropDownArrow.vue';
-  import './_BreadCrumbs.scss';
   export default {
     data () {
       return {
@@ -35,3 +34,7 @@
     },
   };
 </script>
+
+<style lang="scss" scoped>
+  @import "./_BreadCrumbs.scss";
+</style>

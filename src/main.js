@@ -21,6 +21,7 @@ Vue.use(Vuex);
 Vue.use(Auth0Plugin, {
   domain: AuthOptions.domain,
   clientId: AuthOptions.clientId,
+  scope: AuthOptions.scope,
   onRedirectCallback: appState => {
     router.push(
       appState && appState.targetUrl

@@ -6,7 +6,6 @@
 </template>
 
 <script>
-  import './_DropDownArrow.scss';
   export default {
       props: {
         isSelected: {
@@ -17,3 +16,7 @@
       },
   };
 </script>
+
+<style lang="scss" scoped>
+  @import "./_DropDownArrow.scss";
+</style>

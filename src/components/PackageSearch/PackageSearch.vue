@@ -5,9 +5,12 @@
 </template>
 
 <script>
-  import './_PackageSearch.scss';
   export default {
     props: {
     },
   };
 </script>
+
+<style lang="scss" scoped>
+  @import "./_PackageSearch.scss";
+</style>

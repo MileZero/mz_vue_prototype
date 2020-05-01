@@ -93,9 +93,6 @@ export const useAuth0 = ({
       });
       window.addEventListener('beforeunload', () => {
         console.log('Attempting to logout beforeunload');
-        this.$auth.logout({
-          returnTo: window.location.origin
-        });
       });
 
       try {

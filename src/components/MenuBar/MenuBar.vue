@@ -23,7 +23,6 @@
   import MonitorMenu from '../MonitorMenu/MonitorMenu.vue';
   import ReviewMenu from '../ReviewMenu/ReviewMenu.vue';
   import PackageSearch from '../PackageSearch/PackageSearch.vue';
-  import './_MenuBar.scss';
 
   export default {
     props: {
@@ -46,3 +45,7 @@
     }
   };
 </script>
+
+<style lang="scss" scoped>
+  @import "./_MenuBar.scss";
+</style>

@@ -12,7 +12,6 @@
 </template>
 
 <script>
-  import './_MonitorMenu.scss';
   import DropDownArrow from '../DropDownArrow/DropDownArrow.vue';
 
   const MenuOptions = {
@@ -52,3 +51,7 @@
     },
   };
 </script>
+
+<style lang="scss" scoped>
+  @import "./_MonitorMenu.scss";
+</style>

@@ -4,9 +4,12 @@
 </template>
 
 <script>
-  import './_ContentDisplay.scss';
   export default {
     props: {
     },
   };
 </script>
+
+<style lang="scss" scoped>
+  @import "./_ContentDisplay.scss";
+</style>

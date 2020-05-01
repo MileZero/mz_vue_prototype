@@ -11,7 +11,6 @@
   import HubSelectionMenu from '../HubSelectionMenu/HubSelectionMenu.vue';
   import BreadCrumbs from '../BreadCrumbs/BreadCrumbs.vue';
   import UserMenu from '../UserMenu/UserMenu.vue';
-  import './_TopNavBar.scss';
 
   export default {
     props: {
@@ -24,3 +23,7 @@
     },
   };
 </script>
+
+<style lang="scss" scoped>
+  @import "./_TopNavBar.scss";
+</style>

@@ -12,7 +12,6 @@
 </template>
 
 <script>
-  import './_HubSelectionMenu.scss';
   export default {
     data () {
       return {
@@ -50,3 +49,7 @@
     },
   };
 </script>
+
+<style lang="scss" scoped>
+  @import "./_HubSelectionMenu.scss";
+</style>
