@@ -7,13 +7,13 @@
 
 <script>
   export default {
-      props: {
-        isSelected: {
-          type: Boolean,
-          required: true,
-          default: false,
-        },
+    props: {
+      isSelected: {
+        type: Boolean,
+        required: true,
+        default: false,
       },
+    },
   };
 </script>
 

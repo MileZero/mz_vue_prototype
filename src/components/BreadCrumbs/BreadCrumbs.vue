@@ -1,13 +1,14 @@
 <template>
-    <div class="BreadCrumbsContainer">
-      <div class="BreadCrumb" v-for="page in pageViewHistory" :key="page.id">{{page.title}}
-        <DropDownArrow :isSelected="false"/>
-      </div>
+  <div class="BreadCrumbsContainer">
+    <div class="BreadCrumb" v-for="page in pageViewHistory" :key="page.id">{{page.title}}
+      <DropDownArrow :isSelected="false"/>
     </div>
+  </div>
 </template>
 
 <script>
   import DropDownArrow from '../DropDownArrow/DropDownArrow.vue';
+  import './_BreadCrumbs.scss';
   export default {
     data () {
       return {
@@ -34,7 +35,3 @@
     },
   };
 </script>
-
-<style lang="scss" scoped>
-  @import "./_BreadCrumbs.scss";
-</style>
