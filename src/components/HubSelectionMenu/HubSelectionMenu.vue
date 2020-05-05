@@ -2,7 +2,7 @@
   <div class="HubSelectionMenu" v-on:click="dropdown">
     <div class="HubSelectionMenuContent">
       <div class="HubInfo">{{currentHub.name}} ({{currentHub.id}})</div>
-        <transition name="SlideDown">
+        <transition name="HubOptions">
           <ul v-if="dropdownSelected" v-on:click.stop class="HubOptionsList">
             <li class="MenuOptionsListItem" v-for="hub in hubs" :key="hub.id"
                 v-on:click="changeHub(hub)">

@@ -13,9 +13,14 @@ div.HubSelectionMenuContent {
 }
 
 ul.HubOptionsList {
-  background-color: white;
+  background-color: #e0e4e6;
+  z-index: 0;
   border-radius: 5px;
-  padding: 50px 10px 5px 10px;
+  padding: 0px 8px 8px 8px;
+  border-left: 2px inset #000000;
+  border-right: 2px inset #000000;
+  border-bottom: 2px inset #000000;
+  margin-top: 41px;
 }
 
 ul.HubOptionsList > li {
@@ -26,4 +31,22 @@ ul.HubOptionsList > li {
 
 div.HubInfo {
   align-self: center;
+}
+
+.HubOptions-enter-active {
+  transition: all .15s ease;
+}
+
+.HubOptions-leave-active {
+  transition: all .15s ease;
+}
+
+.HubOptions-enter, .HubOptions-leave-to {
+  transform: translateY(-40px);
+  opacity: 0.1;
+}
+
+.HubOptions-leave, .SlideDown-enter-to {
+  transform: translateY(0px);
+  opacity: 1;
 }
