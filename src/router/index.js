@@ -1,9 +1,9 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import App from '../App.vue'
-import { authGuard } from "../service/auth/authGuard.js";
+import Vue from 'vue';
+import Router from 'vue-router';
+import App from '../App.vue';
+import { authGuard } from '../service/auth/authGuard';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   mode: 'history',
@@ -15,5 +15,5 @@ export default new Router({
       component: App,
       beforeEnter: authGuard,
     },
-  ]
-})
+  ],
+});

@@ -4,17 +4,17 @@
       <div class="UserName">Test User</div>
     </div>
     <div class="UserNotifications">
-    </div
+    </div>
     <div class="UserSettings">
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    props: {
-    },
-  };
+export default {
+  props: {
+  },
+};
 </script>
 
 <style lang="scss" scoped>

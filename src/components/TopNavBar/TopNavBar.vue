@@ -8,20 +8,20 @@
 </template>
 
 <script>
-  import HubSelectionMenu from '../HubSelectionMenu/HubSelectionMenu.vue';
-  import BreadCrumbs from '../BreadCrumbs/BreadCrumbs.vue';
-  import UserMenu from '../UserMenu/UserMenu.vue';
+import HubSelectionMenu from '../HubSelectionMenu/HubSelectionMenu.vue';
+import BreadCrumbs from '../BreadCrumbs/BreadCrumbs.vue';
+import UserMenu from '../UserMenu/UserMenu.vue';
 
-  export default {
-    props: {
-    },
-    name: 'TopNavBar',
-    components: {
-      BreadCrumbs,
-      HubSelectionMenu,
-      UserMenu,
-    },
-  };
+export default {
+  props: {
+  },
+  name: 'TopNavBar',
+  components: {
+    BreadCrumbs,
+    HubSelectionMenu,
+    UserMenu,
+  },
+};
 </script>
 
 <style lang="scss" scoped>

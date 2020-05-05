@@ -4,7 +4,10 @@
       <div class="HubInfo">{{currentHub.name}} ({{currentHub.id}})</div>
         <transition name="SlideDown">
           <ul v-if="dropdownSelected" v-on:click.stop class="HubOptionsList">
-            <li class="MenuOptionsListItem" v-for="hub in hubs" :key="hub.id" v-on:click="changeHub(hub)">{{hub.name}} ({{hub.id}})</li>
+            <li class="MenuOptionsListItem" v-for="hub in hubs" :key="hub.id"
+                v-on:click="changeHub(hub)">
+              {{hub.name}} ({{hub.id}})
+            </li>
           </ul>
         </transition>
     </div>
@@ -12,42 +15,42 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        hubs: [
-          {
-            name: 'Albany',
-            id: 7585,
-          },
-          {
-            name: 'Rochester',
-            id: 925,
-          },
-          {
-            name: 'Stockton',
-            id: 8506,
-          },
-        ],
-        currentHub: {
+export default {
+  data() {
+    return {
+      hubs: [
+        {
           name: 'Albany',
           id: 7585,
         },
-        dropdownSelected: false,
-      }
-    },
-    props: {
-    },
-    methods: {
-      dropdown () {
-        this.dropdownSelected = !this.dropdownSelected;
+        {
+          name: 'Rochester',
+          id: 925,
+        },
+        {
+          name: 'Stockton',
+          id: 8506,
+        },
+      ],
+      currentHub: {
+        name: 'Albany',
+        id: 7585,
       },
-      changeHub(hub) {
-        this.currentHub = hub;
-        this.dropdownSelected = false;
-      }
+      dropdownSelected: false,
+    };
+  },
+  props: {
+  },
+  methods: {
+    dropdown() {
+      this.dropdownSelected = !this.dropdownSelected;
     },
-  };
+    changeHub(hub) {
+      this.currentHub = hub;
+      this.dropdownSelected = false;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

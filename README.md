@@ -34,9 +34,11 @@ src/App.vue: Remove all v-if="!$auth.loading" and v-if="$auth.isAuthenticated" s
 src/main.js: Remove router param from new Vue({...}).$mount(#App) statement
 ```
 
-### Compiles & hot reloads for development
+### Running locally
 ```
-npm run devWebpack
+Run both commands concurrently:
+npm run devBuild - watches code for changes to build bundle
+npm run devServe - serves application to localhost:3000
 ```
 
 ### Compiles and minifies for production

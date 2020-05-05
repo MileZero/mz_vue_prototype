@@ -9,9 +9,10 @@
 </template>
 
 <script>
-import MenuBar from './components/MenuBar/MenuBar';
-import TopNavBar from './components/TopNavBar/TopNavBar';
-import ContentDisplay from './components/ContentDisplay/ContentDisplay';
+import MenuBar from './components/MenuBar/MenuBar.vue';
+import TopNavBar from './components/TopNavBar/TopNavBar.vue';
+import ContentDisplay from './components/ContentDisplay/ContentDisplay.vue';
+
 export default {
   name: 'App',
   components: {

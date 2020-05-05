@@ -1,6 +1,6 @@
 <template>
-  <div class="MenuBarOption ReviewMenu MenuDropDown" v-on:click="dropdown">
-    <div class=MenuBarOptionLabel>REVIEW</div>
+  <div class="MenuBarOptionTemplate">
+    <div class=MenuBarOptionLabel>TEMPLATE</div>
     <DropDownArrow :isSelected="dropdownSelected" />
     <div v-if="dropdownSelected" class="FlexBreak"></div>
     <transition name="SlideDown">
@@ -14,48 +14,23 @@
 </template>
 
 <script>
-import DropDownArrow from '../DropDownArrow/DropDownArrow.vue';
+import DropDownArrow from '../../DropDownArrow/DropDownArrow.vue';
 
 const MenuOptions = {
-  Analytics: {
-    title: 'Analytics',
+  Dashboard: {
+    title: 'Option 1',
     endpoint: '',
     id: 1,
   },
-  Loadscans: {
-    title: 'Loadscans',
+  RouteMap: {
+    title: 'Option 2',
     endpoint: '',
     id: 2,
   },
-  Undeliverables: {
-    title: 'Undeliverables',
+  DriverStatus: {
+    title: 'Option 3',
     endpoint: '',
     id: 3,
-  },
-  Payments: {
-    title: 'Payments',
-    endpoint: '',
-    id: 4,
-  },
-  POD: {
-    title: 'POD',
-    endpoint: '',
-    id: 5,
-  },
-  History: {
-    title: 'History',
-    endpoint: '',
-    id: 6,
-  },
-  Messages: {
-    title: 'Messages',
-    endpoint: '',
-    id: 7,
-  },
-  Tasks: {
-    title: 'Tasks',
-    endpoint: '',
-    id: 8,
   },
 };
 
@@ -78,7 +53,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-  @import "./_ReviewMenu.scss";
-</style>
