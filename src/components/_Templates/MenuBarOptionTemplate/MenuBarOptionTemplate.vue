@@ -1,5 +1,5 @@
 <template>
-  <div class="MenuBarOptionTemplate">
+  <div class="MenuBarOption MenuBarOptionTemplate MenuDropDown" v-on:click="dropdown">
     <div class=MenuBarOptionLabel>TEMPLATE</div>
     <DropDownArrow :isSelected="dropdownSelected" />
     <div v-if="dropdownSelected" class="FlexBreak"></div>
@@ -53,3 +53,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@import "./_MenuBarOptionTemplate.scss";
+</style>
