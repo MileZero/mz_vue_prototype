@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import App from '../App.vue';
-import PageViewTemplate from '../views/_Templates/PageViewTemplate/PageViewTemplate.vue';
 import { authGuard } from '../service/auth/authGuard';
 
 Vue.use(Router);
@@ -23,7 +22,7 @@ export default new Router({
       path: '/template',
       name: 'Template',
       components: {
-        ContentDisplay: PageViewTemplate,
+        ContentDisplay: () => import('../views/_Templates/PageViewTemplate/PageViewTemplate.vue'),
       },
     },
   ],
