@@ -6,7 +6,7 @@
     <transition name="SlideDown">
       <ul v-if="dropdownSelected" v-on:click.stop class="MenuOptionsList">
         <li v-for="option in MenuOptions" :key="option.id">
-          <router-link :to="option.endpoint" replace class="MenuOptionsListItem">
+          <router-link :to="option.endpoint" class="MenuOptionsListItem">
             {{option.title}}
           </router-link>
         </li>

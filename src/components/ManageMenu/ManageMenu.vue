@@ -5,8 +5,10 @@
     <div v-if="dropdownSelected" class="FlexBreak"></div>
     <transition name="SlideDown">
       <ul v-if="dropdownSelected" v-on:click.stop class="MenuOptionsList">
-        <li class="MenuOptionsListItem" v-for="option in MenuOptions" :key="option.id">
-          {{option.title}}
+        <li v-for="option in MenuOptions" :key="option.id">
+          <router-link :to="option.endpoint" class="MenuOptionsListItem">
+            {{option.title}}
+          </router-link>
         </li>
       </ul>
     </transition>
