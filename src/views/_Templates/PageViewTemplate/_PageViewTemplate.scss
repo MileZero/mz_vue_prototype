@@ -1,2 +1,45 @@
-.PageViewTemplate {
+table {
+  border: 1px solid #1C6EA4;
+  width: 60%;
+  height: 25%;
+  text-align: left;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+tr:nth-child(even) {
+  background: #EAEAEA;
+}
+
+tr:nth-child(odd) {
+  background: skyblue;
+}
+
+td, th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+
+tbody, td {
+  font-size: 13px;
+}
+
+thead {
+  background: #BFBFBF;
+  background: -moz-linear-gradient(top, #cfcfcf 0%, #c5c5c5 66%, #BFBFBF 100%);
+  background: -webkit-linear-gradient(top, #cfcfcf 0%, #c5c5c5 66%, #BFBFBF 100%);
+  background: linear-gradient(to bottom, #cfcfcf 0%, #c5c5c5 66%, #BFBFBF 100%);
+  border-bottom: 2px solid #444444;
+}
+
+thead, th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  border-left: 2px solid #F5F5F5;
+}
+
+th:first-child {
+  border-left: none;
 }

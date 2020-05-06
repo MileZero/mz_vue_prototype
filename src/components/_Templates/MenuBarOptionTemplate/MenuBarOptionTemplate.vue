@@ -5,8 +5,10 @@
     <div v-if="dropdownSelected" class="FlexBreak"></div>
     <transition name="SlideDown">
       <ul v-if="dropdownSelected" v-on:click.stop class="MenuOptionsList">
-        <li class="MenuOptionsListItem" v-for="option in MenuOptions" :key="option.id">
-          {{option.title}}
+        <li v-for="option in MenuOptions" :key="option.id">
+          <router-link :to="option.endpoint" replace class="MenuOptionsListItem">
+            {{option.title}}
+          </router-link>
         </li>
       </ul>
     </transition>
@@ -17,17 +19,17 @@
 import DropDownArrow from '../../DropDownArrow/DropDownArrow.vue';
 
 const MenuOptions = {
-  Dashboard: {
-    title: 'Option 1',
-    endpoint: '',
+  UserInfo: {
+    title: 'UserInfo(Template)',
+    endpoint: '/template',
     id: 1,
   },
-  RouteMap: {
-    title: 'Option 2',
-    endpoint: '',
+  OptionTwo: {
+    title: 'ClearDisplay',
+    endpoint: '/',
     id: 2,
   },
-  DriverStatus: {
+  OptionThree: {
     title: 'Option 3',
     endpoint: '',
     id: 3,

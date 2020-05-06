@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "devServe": "vue-cli-service serve --port 3000",
-    "devBuild": "vue-cli-service build --watch",
-    "build": "webpack",
+    "devServe": "nodemon src/service/server/index.js",
+    "devBuild": "vue-cli-service build --mode development --watch",
+    "build": "vue-cli-service build --mode production",
     "serve": "node src/service/server/index.js",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
