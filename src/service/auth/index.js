@@ -4,14 +4,10 @@ import createAuth0Client from '@auth0/auth0-spa-js';
 import AuthOptions from './auth0-local-connection.json';
 
 /** Define a default action to perform after authentication */
-const DEFAULT_REDIRECT_CALLBACK = async (appState) => {
-  const params = getParams(window.location.search);
-  let response = await loginMvb(instance, params.state);
-  window.history.replaceState({}, document.title, '');
-  return response;
-}
+const DEFAULT_REDIRECT_CALLBACK = () =>
+  window.history.replaceState({}, document.title, window.location.pathname);
 
-const getParams = (url) => {
+export const getParams = (url) => {
   var params = {};
   var parser = document.createElement('a');
   parser.href = url;
@@ -25,8 +21,8 @@ const getParams = (url) => {
 }
 
 /** Calls mvb to authenticate and set cookie */
-const loginMvb = async (instance, state) => {
-  const requestBody = {
+export const loginMvb = async (instance, state) => {
+  const formBody = {
     access_token: await instance.getTokenSilently(),
     id_token: (await instance.getIdTokenClaims()).__raw,
     scope: instance.auth0Client.options.scope,
@@ -35,25 +31,24 @@ const loginMvb = async (instance, state) => {
     token_type: instance.auth0Client.options.redirect_uri ? 'code' : 'token',
     state
   };
-
-  let body = [];
-  for (let property in requestBody) {
-    const encodedKey = encodeURIComponent(property);
-    const encodedProp = encodeURIComponent(requestBody[property]);
-    body.push(`${encodedKey}=${encodedValue}`);
-  }
-  body = body.join('&');
-
-  let response = await fetch(`${AuthOptions.mvbUrl}/milevision/authenticate`,
-  {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    mode: 'no-cors',
-    body
-  });
-  return response;
+  const body = Object.keys(formBody).map((key) => {
+    return encodeURIComponent(key) + '=' + encodeURIComponent(formBody[key]);
+  }).join('&');
+  
+  try {
+    let response = await(await fetch(`${AuthOptions.mvbUrl}/milevision/authenticate`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      mode: 'cors',
+      body
+    })).json();
+    return response;
+    } catch (e) {
+      return e;
+    }
 }
 
 const logoutMvb = async () => {
@@ -159,10 +154,9 @@ export const useAuth0 = ({
         // If the user is returning to the app after authentication...
         // handle the redirect and retrieve tokens
         const { appState } = await this.auth0Client.handleRedirectCallback();
-        console.log('REDIRECT CALLBACK: ', JSON.stringify(onRedirectCallback));
         // Notify subscribers that the redirect callback has happened, passing the appState
         // (useful for retrieving any pre-authentication state)
-        await onRedirectCallback(appState);
+        onRedirectCallback(appState);
       } catch (e) {
         this.error = e;
       } finally {

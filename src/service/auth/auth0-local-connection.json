@@ -18,5 +18,5 @@
         }
     },
     "logoutRedirectUrl": "http://localhost:3000/",
-    "mvbUrl": "https://milevision-stage.milezero.com/mvb-svc/api"
+    "mvbUrl": "http://localhost:3001/mvb-svc/api"
 }

@@ -2,7 +2,9 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import App from './App.vue';
 import router from './router';
-import { Auth0Plugin } from './service/auth';
+import {
+  Auth0Plugin, getParams, loginMvb, getInstance,
+} from './service/auth';
 import * as AuthOptions from './service/auth/auth0-local-connection.json';
 import BreadCrumbs from './store/BreadCrumbs';
 import AuthInfo from './store/AuthInfo';
@@ -22,6 +24,17 @@ Vue.use(Auth0Plugin, {
   domain: AuthOptions.domain,
   clientId: AuthOptions.clientId,
   scope: AuthOptions.scope,
+  onRedirectCallback: async (appState) => {
+    console.log('using passed redirect cb');
+    const params = getParams(window.location.search);
+    const response = await loginMvb(getInstance(), params.state);
+    router.push(
+      appState && appState.targetUrl
+        ? appState.targetUrl
+        : window.location.pathname,
+    );
+    return response;
+  },
 });
 
 /* Render Vue Application */
