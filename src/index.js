@@ -22,13 +22,6 @@ Vue.use(Auth0Plugin, {
   domain: AuthOptions.domain,
   clientId: AuthOptions.clientId,
   scope: AuthOptions.scope,
-  onRedirectCallback: (appState) => {
-    router.push(
-      appState && appState.targetUrl
-        ? appState.targetUrl
-        : window.location.pathname,
-    );
-  },
 });
 
 /* Render Vue Application */

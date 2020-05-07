@@ -1,10 +1,69 @@
 /* eslint-disable */
 import Vue from 'vue';
 import createAuth0Client from '@auth0/auth0-spa-js';
+import AuthOptions from './auth0-local-connection.json';
 
 /** Define a default action to perform after authentication */
-const DEFAULT_REDIRECT_CALLBACK = () => window.history.replaceState({},
-  document.title, window.location.pathname);
+const DEFAULT_REDIRECT_CALLBACK = async (appState) => {
+  const params = getParams(window.location.search);
+  let response = await loginMvb(instance, params.state);
+  window.history.replaceState({}, document.title, '');
+  return response;
+}
+
+const getParams = (url) => {
+  var params = {};
+  var parser = document.createElement('a');
+  parser.href = url;
+  var query = parser.search.substring(1);
+  var vars = query.split('&');
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split('=');
+    params[pair[0]] = decodeURIComponent(pair[1]);
+  }
+  return params;
+}
+
+/** Calls mvb to authenticate and set cookie */
+const loginMvb = async (instance, state) => {
+  const requestBody = {
+    access_token: await instance.getTokenSilently(),
+    id_token: (await instance.getIdTokenClaims()).__raw,
+    scope: instance.auth0Client.options.scope,
+    /** ID Token Expiration in seconds, defined in Auth0 Application Management */
+    expires_in: 36000,
+    token_type: instance.auth0Client.options.redirect_uri ? 'code' : 'token',
+    state
+  };
+
+  let body = [];
+  for (let property in requestBody) {
+    const encodedKey = encodeURIComponent(property);
+    const encodedProp = encodeURIComponent(requestBody[property]);
+    body.push(`${encodedKey}=${encodedValue}`);
+  }
+  body = body.join('&');
+
+  let response = await fetch(`${AuthOptions.mvbUrl}/milevision/authenticate`,
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    mode: 'no-cors',
+    body
+  });
+  return response;
+}
+
+const logoutMvb = async () => {
+  let response = await fetch(`${AuthOptions.mvbUrl}/milevision/logout`,
+  {
+    method: 'GET',
+    mode: 'no-cors',
+  });
+  return response;
+}
 
 let instance;
 
@@ -76,12 +135,12 @@ export const useAuth0 = ({
         return this.auth0Client.getTokenSilently(o);
       },
       /** Gets the access token using a popup window */
-
       getTokenWithPopup(o) {
         return this.auth0Client.getTokenWithPopup(o);
       },
       /** Logs the user out and removes their session on the authorization server */
-      logout(o) {
+      async logout(o) {
+        await logoutMvb();
         return this.auth0Client.logout(o);
       },
     },
@@ -93,17 +152,17 @@ export const useAuth0 = ({
         client_id: options.clientId,
         audience: options.audience,
         redirect_uri: redirectUri,
+        scope: options.scope,
       });
 
       try {
         // If the user is returning to the app after authentication...
-
         // handle the redirect and retrieve tokens
         const { appState } = await this.auth0Client.handleRedirectCallback();
-
+        console.log('REDIRECT CALLBACK: ', JSON.stringify(onRedirectCallback));
         // Notify subscribers that the redirect callback has happened, passing the appState
         // (useful for retrieving any pre-authentication state)
-        onRedirectCallback(appState);
+        await onRedirectCallback(appState);
       } catch (e) {
         this.error = e;
       } finally {
