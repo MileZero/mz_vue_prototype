@@ -3,20 +3,5 @@
     "domain": "milezero-dev.auth0.com",
     "clientId": "oKs55TTip82BWxDUmo6qZ7vjDFXLpqNX",
     "scope": "openid authorization organization objects",
-    "options": {
-        "configurationBaseUrl": "https://cdn.auth0.com",
-        "allowSignUp": false,
-        "avatar": null,
-        "auth": {
-            "redirectUrl": "http://localhost:3000/",
-            "responseType": "token",
-            "redirect": true,
-            "sso": true
-        },
-        "theme": {
-            "logo": "/assets/logo-text-auth0.png"
-        }
-    },
-    "logoutRedirectUrl": "http://localhost:3000/",
-    "mvbUrl": "http://localhost:3001/mvb-svc/api"
+    "logoutRedirectUrl": "http://localhost:3000/"
 }

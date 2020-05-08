@@ -6,6 +6,7 @@ import {
   Auth0Plugin, getParams, loginMvb, getInstance,
 } from './service/auth';
 import * as AuthOptions from './service/auth/auth0-local-connection.json';
+import WebsocketPlugin from './store/plugins/websocket';
 import BreadCrumbs from './store/BreadCrumbs';
 import AuthInfo from './store/AuthInfo';
 
@@ -17,6 +18,7 @@ const store = new Vuex.Store({
     BreadCrumbs,
     AuthInfo,
   },
+  plugins: [WebsocketPlugin],
 });
 
 /* Initialize Auth0 Plugin */

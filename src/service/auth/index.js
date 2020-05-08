@@ -1,7 +1,7 @@
 /* eslint-disable */
 import Vue from 'vue';
 import createAuth0Client from '@auth0/auth0-spa-js';
-import AuthOptions from './auth0-local-connection.json';
+import ConnectionOptions from '../local-connection.json';
 
 /** Define a default action to perform after authentication */
 const DEFAULT_REDIRECT_CALLBACK = () =>
@@ -36,7 +36,7 @@ export const loginMvb = async (instance, state) => {
   }).join('&');
   
   try {
-    let response = await(await fetch(`${AuthOptions.mvbUrl}/milevision/authenticate`,
+    let response = await(await fetch(`${ConnectionOptions.mvbUrl}/milevision/authenticate`,
     {
       method: 'POST',
       headers: {
@@ -52,7 +52,7 @@ export const loginMvb = async (instance, state) => {
 }
 
 const logoutMvb = async () => {
-  let response = await fetch(`${AuthOptions.mvbUrl}/milevision/logout`,
+  let response = await fetch(`${ConnectionOptions.mvbUrl}/milevision/logout`,
   {
     method: 'GET',
     mode: 'no-cors',
