@@ -26,23 +26,8 @@ class WebsocketConnection {
       return event;
     };
 
-    this.socket.onmessage = (event) => {
-      let parsed;
-      this.stopHeartbeat();
-      this.startHeartbeat();
-      this.failedConnections = 0;
-      try {
-        parsed = JSON.parse(event.data);
-      } catch (e) {
-        return console.warn(`Invalid WebSocket message format: ${event.data}`);
-      }
-      event.detail = parsed;
-      console.log(`Parsed websocket message: ${event.detail}`);
-      return event.detail;
-    };
-
     this.socket.onerror = (event) => {
-      console.error(`WebSocket error: ${event}`);
+      console.error('WebSocket error: ', event);
       return event;
     };
 
@@ -70,17 +55,35 @@ class WebsocketConnection {
 
 const ws = new WebsocketConnection(ConnectionOptions.websocketUrl, 5000);
 
-function createWebSocketPlugin(socket) {
+function createWebSocketPlugin(ws) {
   return (store) => {
-    socket.on('data', (data) => {
-      // store.commit('receiveData', data);
-      console.log(data);
-    });
-    store.subscribe((mutation) => {
-      if (mutation.type === 'UPDATE_DATA') {
-        // socket.emit('update', mutation.payload);
+    /** Listen for websocket messages and parse */
+    ws.socket.onmessage = (event) => {
+      let parsed;
+      ws.stopHeartbeat();
+      ws.startHeartbeat();
+      ws.failedConnections = 0;
+      try {
+        parsed = JSON.parse(event.data);
+      } catch (e) {
+        return console.warn('Invalid WebSocket message format: ', event.data);
       }
-      console.log(mutation);
+      event.detail = parsed;
+      console.log('Parsed websocket message: ', event.detail);
+      /** List state mutations based on event type */
+      // if (event.type === 'test') {
+      //   store.commit('stateMutation', event.detail);
+      // } else if (event.type === 'testTwo') {
+      //   store.commit('stateMutationTwo', event.detail);
+      // }
+    }
+    /** For WS_SEND mutations emitted, we will send the payload
+     *  via websocket connection.
+     */
+    store.subscribe((mutation) => {
+      if (mutation.type === 'WS_SEND') {
+        ws.socket.send(mutation.payload);
+      }
     });
   };
 }
