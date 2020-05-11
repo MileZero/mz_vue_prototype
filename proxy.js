@@ -7,7 +7,8 @@ var proxy = httpProxy.createProxyServer({
          host: 'milevision-stage.milezero.com'
      },
     ws: true,
-    secure: false
+    secure: false,
+    changeOrigin: true,
 }).on('proxyRes', function (proxyRes, req, res) {
     proxyRes.headers["Access-Control-Allow-Origin"] = req.headers.origin;
 }).on('error', function (e) {
@@ -29,9 +30,10 @@ http.createServer(function (req, res) {
         proxy.ws(req, res, {target: 'wss://milevision-stage.milezero.com'});
     } else if (req.url.startsWith('/mv')) {
         proxy.web(req, res, {target: 'https://view.stage.milezero.com/mv/'});
-    } else {
-        proxy.web(req, res, {target: 'https://milevision-stage.milezero.com'});
     }
+    // } else {
+        // proxy.web(req, res, {target: 'https://milevision-stage.milezero.com'});
+    // }
 }).on('upgrade', function (req, socket, head) {
     console.log("HTTP/" + req.httpVersion + " " + req.method + " " + req.url);
     proxy.ws(req, socket, head, {target: 'wss://milevision-stage.milezero.com'});

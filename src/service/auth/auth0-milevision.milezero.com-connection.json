@@ -2,6 +2,22 @@
     "name":"Auth0 Production",
     "domain": "milezero.auth0.com",
     "clientId": "7umULmlCTJr3sOnz5iwpnCXnXc5Le1LC",
-    "scope": "openid authorization organization objects",
-    "logoutRedirectUrl": "https://milevision.milezero.com/"
+    "options": {
+        "configurationBaseUrl": "https://cdn.auth0.com",
+        "allowSignUp": false,
+        "avatar": null,
+        "auth": {
+            "params": {
+                "scope": "openid authorization organization objects"
+            },
+            "redirectUrl": "https://milevision.milezero.com/",
+            "responseType": "token",
+            "redirect": true,
+            "sso": true
+        },
+        "theme": {
+            "logo": "/assets/logo-text-auth0.png"
+        }    
+    }
 }
+

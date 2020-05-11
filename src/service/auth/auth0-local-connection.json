@@ -2,6 +2,21 @@
     "name": "Auth0 Local Development",
     "domain": "milezero-dev.auth0.com",
     "clientId": "oKs55TTip82BWxDUmo6qZ7vjDFXLpqNX",
-    "scope": "openid authorization organization objects",
-    "logoutRedirectUrl": "http://localhost:3000/"
+    "options": {
+        "configurationBaseUrl": "https://cdn.auth0.com",
+        "allowSignUp": false,
+        "avatar": null,
+        "auth": {
+            "params": {
+                "scope": "openid authorization organization objects"
+            },
+            "redirectUrl": "http://localhost:3000/",
+            "responseType": "token",
+            "redirect": true,
+            "sso": true
+        },
+        "theme": {
+            "logo": "/assets/logo-text-auth0.png"
+        }
+    }
 }

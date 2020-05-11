@@ -12,9 +12,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.7.0",
     "@babel/core": "^7.9.6",
     "@babel/polyfill": "^7.8.7",
+    "auth0-lock": "^11.23.1",
     "body-parser": "^1.19.0",
     "core-js": "^3.6.4",
     "debug": "^4.1.1",

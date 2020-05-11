@@ -1,11 +1,7 @@
 /* eslint-disable */
 import Vue from 'vue';
-import createAuth0Client from '@auth0/auth0-spa-js';
+import Auth0Lock from 'auth0-lock';
 import ConnectionOptions from '../local-connection.json';
-
-/** Define a default action to perform after authentication */
-const DEFAULT_REDIRECT_CALLBACK = () =>
-  window.history.replaceState({}, document.title, window.location.pathname);
 
 export const getParams = (url) => {
   var params = {};
@@ -46,17 +42,17 @@ export const loginMvb = async (instance, state) => {
       body
     })).json();
     return response;
-    } catch (e) {
-      return e;
-    }
+  } catch (e) {
+    return e;
+  }
 }
 
 const logoutMvb = async () => {
-  let response = await fetch(`${ConnectionOptions.mvbUrl}/milevision/logout`,
+  let response = await(await fetch(`${ConnectionOptions.mvbUrl}/milevision/logout`,
   {
     method: 'GET',
     mode: 'no-cors',
-  });
+  })).json();
   return response;
 }
 
@@ -69,9 +65,8 @@ export const getInstance = () => instance;
   *  If one has already been created, it returns that instance
  */
 export const useAuth0 = ({
-  onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
   redirectUri = window.location.origin,
-  ...options
+  ...AuthOptions
 }) => {
   if (instance) return instance;
 
@@ -89,82 +84,92 @@ export const useAuth0 = ({
     },
     methods: {
       /** Authenticates the user using a popup window */
-      async loginWithPopup(o) {
-        this.popupOpen = true;
+      // async loginWithPopup(o) {
+      //   this.popupOpen = true;
 
-        try {
-          await this.auth0Client.loginWithPopup(o);
-        } catch (e) {
-          // eslint-disable-next-line
-          console.error(e);
-        } finally {
-          this.popupOpen = false;
-        }
+      //   try {
+      //     await this.auth0Client.loginWithPopup(o);
+      //   } catch (e) {
+      //     // eslint-disable-next-line
+      //     console.error(e);
+      //   } finally {
+      //     this.popupOpen = false;
+      //   }
 
-        this.user = await this.auth0Client.getUser();
-        this.isAuthenticated = true;
-      },
+      //   this.user = await this.auth0Client.getUser();
+      //   this.isAuthenticated = true;
+      // },
       /** Handles the callback when logging in using a redirect */
-      async handleRedirectCallback() {
-        this.loading = true;
-        try {
-          await this.auth0Client.handleRedirectCallback();
-          this.user = await this.auth0Client.getUser();
-          this.isAuthenticated = true;
-        } catch (e) {
-          this.error = e;
-        } finally {
-          this.loading = false;
-        }
-      },
+      // async handleRedirectCallback() {
+      //   this.loading = true;
+      //   try {
+      //     await this.auth0Client.handleRedirectCallback();
+      //     this.user = await this.auth0Client.getUser();
+      //     this.isAuthenticated = true;
+      //   } catch (e) {
+      //     this.error = e;
+      //   } finally {
+      //     this.loading = false;
+      //   }
+      // },
       /** Authenticates the user using the redirect method */
-      loginWithRedirect(o) {
-        return this.auth0Client.loginWithRedirect(o);
-      },
+      // loginWithRedirect(o) {
+      //   return this.auth0Client.loginWithRedirect(o);
+      // },
       /** Returns all the claims present in the ID token */
-      getIdTokenClaims(o) {
-        return this.auth0Client.getIdTokenClaims(o);
-      },
+      // getIdTokenClaims(o) {
+      //   return this.auth0Client.getIdTokenClaims(o);
+      // },
       /** Returns the access token. If the token is invalid or missing, a new one is retrieved */
-      getTokenSilently(o) {
-        return this.auth0Client.getTokenSilently(o);
-      },
+      // getTokenSilently(o) {
+      //   return this.auth0Client.getTokenSilently(o);
+      // },
       /** Gets the access token using a popup window */
-      getTokenWithPopup(o) {
-        return this.auth0Client.getTokenWithPopup(o);
-      },
+      // getTokenWithPopup(o) {
+      //   return this.auth0Client.getTokenWithPopup(o);
+      // },
       /** Logs the user out and removes their session on the authorization server */
       async logout(o) {
-        await logoutMvb();
+        // await logoutMvb();
         return this.auth0Client.logout(o);
       },
     },
     /** Use this lifecycle method to instantiate the SDK client */
     async created() {
       // Create a new instance of the SDK client using members of the given options object
-      this.auth0Client = await createAuth0Client({
-        domain: options.domain,
-        client_id: options.clientId,
-        audience: options.audience,
-        redirect_uri: redirectUri,
-        scope: options.scope,
+      // this.auth0Client = await createAuth0Client({
+      //   domain: options.domain,
+      //   client_id: options.clientId,
+      //   audience: options.audience,
+      //   redirect_uri: redirectUri,
+      //   scope: options.scope,
+      // });
+      this.auth0Client = instance || new Auth0Lock(AuthOptions.clientId, AuthOptions.domain, AuthOptions.options);
+      if (!this.isAuthenticated) this.auth0Client.show();
+      this.auth0Client.on("authenticated", (authResult) => {
+        this.auth0Client.getUserInfo(authResult.accessToken, (error, userProfile) => {
+          if (error) return error;
+          this.auth0Client.hide();
+          this.user = userProfile;
+          this.isAuthenticated = true;
+          this.loading = false;
+          AuthOptions.onRedirectCallback(appState);
+        });
       });
-
-      try {
+      // try {
         // If the user is returning to the app after authentication...
         // handle the redirect and retrieve tokens
-        const { appState } = await this.auth0Client.handleRedirectCallback();
+        // const { appState } = await this.auth0Client.handleRedirectCallback();
         // Notify subscribers that the redirect callback has happened, passing the appState
         // (useful for retrieving any pre-authentication state)
-        onRedirectCallback(appState);
-      } catch (e) {
-        this.error = e;
-      } finally {
-        // Initialize our internal authentication state
-        this.isAuthenticated = await this.auth0Client.isAuthenticated();
-        this.user = await this.auth0Client.getUser();
-        this.loading = false;
-      }
+      // } catch (e) {
+      //   this.error = e;
+      // } finally {
+      //   // Initialize our internal authentication state
+      //   this.isAuthenticated = await this.auth0Client.isAuthenticated();
+      //   this.user = await this.auth0Client.getUser();
+      //   this.loading = false;
+      // }
     },
   });
 
@@ -173,7 +178,7 @@ export const useAuth0 = ({
 
 // Create a simple Vue plugin to expose the wrapper object throughout the application
 export const Auth0Plugin = {
-  install(Vue, options) {
-    Vue.prototype.$auth = useAuth0(options);
+  install(Vue, AuthOptions) {
+    Vue.prototype.$auth = useAuth0(AuthOptions);
   },
 };
