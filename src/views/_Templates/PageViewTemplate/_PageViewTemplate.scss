@@ -1,10 +1,11 @@
 table {
   border: 1px solid #1C6EA4;
-  width: 60%;
+  width: 90%;
   height: 25%;
   text-align: left;
   border-collapse: collapse;
-  margin: 0 auto;
+  margin: 25px auto;
+  table-layout: fixed;
 }
 
 tr:nth-child(even) {
@@ -22,6 +23,10 @@ td, th {
 
 tbody, td {
   font-size: 13px;
+}
+
+td {
+  white-space:pre;
 }
 
 thead {

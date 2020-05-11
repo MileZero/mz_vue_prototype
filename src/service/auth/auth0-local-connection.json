@@ -1,7 +1,7 @@
 {
     "name": "Auth0 Local Development",
-    "domain": "milezero-dev.auth0.com",
-    "clientId": "oKs55TTip82BWxDUmo6qZ7vjDFXLpqNX",
+    "domain": "milezero.auth0.com",
+    "clientId": "7umULmlCTJr3sOnz5iwpnCXnXc5Le1LC",
     "options": {
         "configurationBaseUrl": "https://cdn.auth0.com",
         "allowSignUp": false,

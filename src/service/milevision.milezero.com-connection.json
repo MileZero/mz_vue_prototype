@@ -1,6 +1,6 @@
 {
   "name": "MileVision Production",
-  "mvbUrl": "https://milevision.milezero.com/mvb-svc/api/",
+  "mvbUrl": "https://milevision.milezero.com/mvb-svc/api",
   "websocketUrl": "wss://milevision.milezero.com/mvb-svc/api/websocket",
   "mileviewUrl": "https://view.milezero.com/mv/"
 }

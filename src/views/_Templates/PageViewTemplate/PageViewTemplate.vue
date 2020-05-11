@@ -3,16 +3,16 @@
       <table>
         <thead>
           <tr>
-            <th colspan=2>AUTH0 USER INFO</th>
+            <th colspan=4>AUTH0 USER INFO</th>
           </tr>
           <tr>
-            <th>PROPERTY</th>
-            <th>VALUE</th>
+            <th colspan=1>PROPERTY</th>
+            <th colspan=3>VALUE</th>
           </tr>
         </thead>
         <tr v-for="(value, prop) in userInfo" v-bind:key="prop">
-          <td>{{prop}}</td>
-          <td>{{value}}</td>
+          <td colspan=1>{{prop}}</td>
+          <td colspan=3>{{value}}</td>
         </tr>
       </table>
     </div>

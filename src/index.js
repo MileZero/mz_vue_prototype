@@ -2,9 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import App from './App.vue';
 import router from './router';
-import {
-  Auth0Plugin, getParams, loginMvb, getInstance,
-} from './service/auth';
+import { Auth0Plugin } from './service/auth';
 import * as AuthOptions from './service/auth/auth0-local-connection.json';
 // import WebsocketPlugin from './store/plugins/websocket';
 import BreadCrumbs from './store/BreadCrumbs';
@@ -26,17 +24,6 @@ Vue.use(Auth0Plugin, {
   domain: AuthOptions.domain,
   clientId: AuthOptions.clientId,
   options: AuthOptions.options,
-  onRedirectCallback: async (appState) => {
-    // const params = getParams(window.location.search);
-    // const response = await loginMvb(getInstance(), params.state);
-    console.log('AT REDIRECT CALLBACK');
-    router.push(
-      appState && appState.targetUrl
-        ? appState.targetUrl
-        : window.location.pathname,
-    );
-    // return response;
-  },
 });
 
 /* Render Vue Application */
