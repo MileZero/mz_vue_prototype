@@ -16,15 +16,6 @@ div.UserInfoContainer {
   flex-wrap: wrap;
 }
 
-div.UserInfoContainer::before {
-  background-image: url('../../assets/logo.svg');
-  background-repeat: no-repeat;
-  content: "";
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-}
-
 div.UserName {
   margin-top: 5px;
 }

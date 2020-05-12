@@ -52,7 +52,7 @@ const loginMvb = async (access_token, id_token, scope, token_type, state) => {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      mode: 'cors',
+      mode: 'no-cors',
       body,
     })).json();
     return response;
