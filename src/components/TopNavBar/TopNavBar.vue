@@ -1,6 +1,6 @@
 <template>
   <div class="TopNavBar">
-    <div class="CompanyLogo"></div>
+    <div class="CompanyLogo" :style="InjectCompanyLogo"></div>
     <BreadCrumbs />
     <HubSelectionMenu />
     <UserMenu />
@@ -15,11 +15,21 @@ import UserMenu from '../UserMenu/UserMenu.vue';
 export default {
   props: {
   },
+  data() {
+    return {
+      CompanyLogoUrl: '',
+    };
+  },
   name: 'TopNavBar',
   components: {
     BreadCrumbs,
     HubSelectionMenu,
     UserMenu,
+  },
+  computed: {
+    InjectCompanyLogo() {
+      return { 'background-image': `url("${this.$auth.org.org.logo}")` };
+    },
   },
 };
 </script>

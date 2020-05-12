@@ -19,3 +19,11 @@ div.UserInfoContainer {
 div.UserName {
   margin-top: 5px;
 }
+
+div.UserProfileImage {
+  background-repeat: round;
+  content: '';
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}

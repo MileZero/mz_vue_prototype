@@ -114,7 +114,6 @@ export const useAuth0 = ({
           if (error) return error;
           this.user = userProfile;
           this.isAuthenticated = true;
-          this.loading = false;
           await loginMvb(
             authResult.accessToken,
             authResult.idToken,
@@ -123,6 +122,7 @@ export const useAuth0 = ({
             authResult.state
           );
           this.org = await getOrg(userProfile.organization.Alabo.orgId);
+          this.loading = false;
           this.auth0Client.hide();
         });
       });

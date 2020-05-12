@@ -1,7 +1,9 @@
 div.HubSelectionMenu {
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 3%;
   cursor: pointer;
+  min-width: 250px;
+  max-width: 250px;
 }
 
 div.HubSelectionMenuContent {
