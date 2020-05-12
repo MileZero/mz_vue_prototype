@@ -1,7 +1,10 @@
+'use strict';
 const http = require('http'),
     httpProxy = require('http-proxy');
 
-var proxy = httpProxy.createProxyServer({
+let proxiedCookie = '';
+
+const proxy = httpProxy.createProxyServer({
      target: "https://milevision-stage.milezero.com",
      headers: {
          host: 'milevision-stage.milezero.com'
@@ -9,8 +12,16 @@ var proxy = httpProxy.createProxyServer({
     ws: true,
     secure: false,
     changeOrigin: true,
+}).on('proxyReq', function (proxyReq, req, res) {
+    if (proxiedCookie) {
+      proxyReq.setHeader('cookie', proxiedCookie);
+    }
 }).on('proxyRes', function (proxyRes, req, res) {
     proxyRes.headers["Access-Control-Allow-Origin"] = req.headers.origin;
+    proxiedCookie = proxyRes.headers['set-cookie'][1];
+    if (proxiedCookie && proxiedCookie.includes('mz_auth_token') && proxiedCookie.includes(' secure;')) {
+      proxyRes.headers['set-cookie'][1] = proxiedCookie.split(' secure;').join('');
+    }
 }).on('error', function (e) {
     console.error("Proxy encountered error: " + e);
 });

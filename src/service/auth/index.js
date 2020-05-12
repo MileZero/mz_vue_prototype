@@ -16,8 +16,23 @@ export const getParams = (url) => {
   return params;
 }
 
+const getOrg = async (orgId) => {
+  try {
+    let response = await(await fetch(`${ConnectionOptions.mvbUrl}/milevision/${orgId}`, {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+      },
+    })).json();
+    return response;
+  } catch (e) {
+    return e;
+  }
+}
+
 /** Calls mvb to authenticate and set cookie */
-export const loginMvb = async (access_token, id_token, scope, token_type, state) => {
+const loginMvb = async (access_token, id_token, scope, token_type, state) => {
   const formBody = {
     access_token,
     id_token,
@@ -38,7 +53,7 @@ export const loginMvb = async (access_token, id_token, scope, token_type, state)
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       mode: 'cors',
-      body
+      body,
     })).json();
     return response;
   } catch (e) {
@@ -50,7 +65,7 @@ const logoutMvb = async () => {
   let response = await(await fetch(`${ConnectionOptions.mvbUrl}/milevision/logout`,
   {
     method: 'GET',
-    mode: 'no-cors',
+    mode: 'cors',
   })).json();
   return response;
 }
@@ -76,6 +91,7 @@ export const useAuth0 = ({
         loading: true,
         isAuthenticated: false,
         user: {},
+        org: {},
         auth0Client: null,
         popupOpen: false,
         error: null,
@@ -106,6 +122,7 @@ export const useAuth0 = ({
             authResult.tokenType,
             authResult.state
           );
+          this.org = await getOrg(userProfile.organization.Alabo.orgId);
           this.auth0Client.hide();
         });
       });

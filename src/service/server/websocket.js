@@ -53,4 +53,4 @@ class WebsocketConnection {
   }
 }
 
-// export default new WebsocketConnection(ConnectionOptions.websocketUrl, 300);
+export default new WebsocketConnection(ConnectionOptions.websocketUrl, 300);

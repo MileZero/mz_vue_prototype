@@ -4,9 +4,8 @@ import App from './App.vue';
 import router from './router';
 import { Auth0Plugin } from './service/auth';
 import * as AuthOptions from './service/auth/auth0-local-connection.json';
-// import WebsocketPlugin from './store/plugins/websocket';
+import WebsocketPlugin from './store/plugins/websocket';
 import BreadCrumbs from './store/BreadCrumbs';
-import AuthInfo from './store/AuthInfo';
 
 /* Initialize Vuex Store */
 Vue.config.productionTip = false;
@@ -14,9 +13,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   modules: {
     BreadCrumbs,
-    AuthInfo,
   },
-  // plugins: [WebsocketPlugin],
+  plugins: [WebsocketPlugin],
 });
 
 /* Initialize Auth0 Plugin */
