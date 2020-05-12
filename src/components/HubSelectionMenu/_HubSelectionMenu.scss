@@ -12,18 +12,42 @@ div.HubSelectionMenuContent {
   align-items: flex-end;
 }
 
-ul.HubOptionsList {
+div.HubOptionsList {
   background-color: #e0e4e6;
   z-index: 0;
   border-radius: 5px;
-  padding: 0px 8px 8px 8px;
   border-left: 2px inset #000000;
   border-right: 2px inset #000000;
   border-bottom: 2px inset #000000;
   margin-top: 41px;
+  width: 250px;
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-ul.HubOptionsList > li {
+div.HubListItem {
+  padding: 2px 4px 2px 4px;
+  cursor: pointer;
+  width: inherit;
+  text-align: center;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+div.HubListItem:hover {
+  background: rgba(47, 172, 226, 0.822);
+  color: white;
+}
+
+div.SelectedHub.HubListItem {
+  background: rgba(47,171,226,1);
+  color: white;
+}
+
+div.HubOptionsList > div {
   color: black;
   text-align: left;
   margin-right: 10px;
