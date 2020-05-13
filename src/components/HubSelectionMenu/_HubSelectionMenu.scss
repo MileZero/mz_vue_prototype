@@ -21,7 +21,7 @@ div.HubOptionsList {
   border-left: 2px inset #000000;
   border-right: 2px inset #000000;
   border-bottom: 2px inset #000000;
-  margin-top: 41px;
+  margin-top: 4px;
   width: 250px;
   max-height: 500px;
   overflow-x: hidden;
@@ -55,8 +55,19 @@ div.HubOptionsList > div {
   margin-right: 10px;
 }
 
+div.HubInfo, div.DateTime {
+  width: 190px;
+  align-self: flex-end;
+}
+
 div.HubInfo {
-  align-self: center;
+  font-size: 18px;
+  margin-top: -4px;
+}
+
+div.DateTime {
+  margin-top: 4px;
+  font-size: 14px;
 }
 
 .HubOptions-enter-active {
