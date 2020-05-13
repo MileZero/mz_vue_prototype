@@ -18,9 +18,11 @@ Prototype refactoring of MileVision utilizing Vue/VueX.
 |   +-- /router      [Vue router]
 |   +-- /service
     |   +-- /auth    [Auth0 Plugin]
-    |   +-- /server  [Express Server]
-|  
+    |   +-- /server  [Express Server/Websocket]
+|   +-- /store       [Application-wide Stores]
+    |   +-- /plugins [Plugins that interact with the store]
 |   +-- /test        [Test Config]
++-- proxy.js         [Allows local dev communication with staging backend]
 ```
 
 ## Project setup
