@@ -39,7 +39,6 @@ export default {
   methods: {
     dropdown() {
       this.dropdownSelected = !this.dropdownSelected;
-      console.log(this.$auth.org);
     },
     setHub(hubIndex) {
       this.currentHubIndex = hubIndex;
