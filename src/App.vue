@@ -1,10 +1,13 @@
 <template>
   <div wid="app">
-    <div v-if="!$auth.loading">
-      <TopNavBar v-if="$auth.isAuthenticated"/>
-      <MenuBar v-if="$auth.isAuthenticated"/>
-      <ContentDisplay v-if="$auth.isAuthenticated"/>
-    </div>
+    <transition name="fade">
+      <div v-if="!$auth.loading">
+        <Unauthorized v-if="!$auth.isAuthenticated"/>
+        <TopNavBar v-if="$auth.isAuthenticated"/>
+        <MenuBar v-if="$auth.isAuthenticated"/>
+        <ContentDisplay v-if="$auth.isAuthenticated"/>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -12,6 +15,7 @@
 import MenuBar from './components/MenuBar/MenuBar.vue';
 import TopNavBar from './components/TopNavBar/TopNavBar.vue';
 import ContentDisplay from './components/ContentDisplay/ContentDisplay.vue';
+import Unauthorized from './views/Unauthorized/Unauthorized.vue';
 
 export default {
   name: 'App',
@@ -19,6 +23,7 @@ export default {
     TopNavBar,
     MenuBar,
     ContentDisplay,
+    Unauthorized,
   },
   methods: {
   },

@@ -113,7 +113,6 @@ export const useAuth0 = ({
         this.auth0Client.getUserInfo(authResult.accessToken, async (error, userProfile) => {
           if (error) return error;
           this.user = userProfile;
-          this.isAuthenticated = true;
           await loginMvb(
             authResult.accessToken,
             authResult.idToken,
@@ -122,6 +121,9 @@ export const useAuth0 = ({
             authResult.state
           );
           this.org = await getOrg(userProfile.organization.Alabo.orgId);
+          if (this.org.org) {
+            this.isAuthenticated = true;
+          }
           this.loading = false;
           this.auth0Client.hide();
         });

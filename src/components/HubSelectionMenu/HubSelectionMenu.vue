@@ -31,7 +31,7 @@ export default {
       currentHubIndex: 0,
       dropdownSelected: false,
       currentDate: moment().format('dddd, MMMM DD'),
-      currentTime: moment().format('hh:mm:ss A (z)'),
+      currentTime: moment().format('hh:mm A (z)'),
     };
   },
   props: {
@@ -47,12 +47,12 @@ export default {
     },
     setDateTime() {
       this.currentDate = moment.tz(this.$auth.org.facilities[this.currentHubIndex].location.timezone).format('dddd, MMMM DD');
-      this.currentTime = moment.tz(this.$auth.org.facilities[this.currentHubIndex].location.timezone).format('hh:mm:ss A (z)');
+      this.currentTime = moment.tz(this.$auth.org.facilities[this.currentHubIndex].location.timezone).format('hh:mm A (z)');
     },
   },
   created() {
     this.setDateTime();
-    setInterval(this.setDateTime, 1000);
+    setInterval(this.setDateTime, 1000 * 60);
   },
 };
 </script>
