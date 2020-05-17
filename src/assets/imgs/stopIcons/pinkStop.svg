@@ -1,0 +1,24 @@
+<svg xmlns:se="http://svg-edit.googlecode.com" xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns="http://www.w3.org/2000/svg" width="45"
+     height="43" style="">
+    <title>my vector image
+    </title>                                    <!-- Created with Vector Paint - http://www.vectorpaint.yaks.com/ https://chrome.google.com/webstore/detail/hnbpdiengicdefcjecjbnjnoifekhgdo -->
+    <rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="#FFFFFF" stroke="none" class="" style=""
+          opacity="0"/>
+    <g class="currentLayer" style="">
+        <title>Layer 1</title>
+        <path fill="#b804b8" stroke="#540099" stroke-opacity="1" stroke-width="2" stroke-dasharray="none"
+              stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1"
+              marker-start="" marker-mid="" marker-end=""
+              d="M1,21.45883C1,10.15561 10.53202,1 22.29994,1C34.06786,1 43.59988,10.15561 43.59988,21.45883C43.59988,32.76205 34.06786,41.91765 22.29994,41.91765C10.53202,41.91765 1,32.76205 1,21.45883z"
+              id="svg_24" class="" fill-opacity="1"/>
+
+        <path fill="#990098" fill-opacity="1" stroke="none" stroke-width="2" stroke-dasharray="none"
+              stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1"
+              marker-start="" marker-mid="" marker-end=""
+              d="M18.833008146346636,36.71036459059741 C18.833008146346636,34.730497042144336 20.45365162148541,33.12680432789736 22.45444603523697,33.12680432789736 C24.455240448988533,33.12680432789736 26.075883924127304,34.730497042144336 26.075883924127304,36.71036459059741 C26.075883924127304,38.690232139050465 24.455240448988533,40.29392485329744 22.45444603523697,40.29392485329744 C20.45365162148541,40.29392485329744 18.833008146346636,38.690232139050465 18.833008146346636,36.71036459059741 z"
+              id="svg_19" class=""/>
+    </g>
+</svg>

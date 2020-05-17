@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    font: 14px/1.3 Open Sans,sans-serif;
+}
+header {
+    background-color:rgba(33, 33, 33, 0.9);
+    color:#ffffff;
+    display:block;
+    font: 14px/1.3 Open Sans,sans-serif;
+    height:50px;
+    position:relative;
+}
+separator {
+    background-color:#f6a828;
+    color:#ffffff;
+    display:block;
+    font: 14px/1.3 Open Sans,sans-serif;
+    height:32px;
+    position:relative;
+    width: 100%;
+    text-align: center;
+}
+h4{
+    font-size: 22px;
+    font-weight: 500;
+    padding: 0;
+    width: 80%;
+    text-align:;
+}
+header h2{
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0px auto;
+    padding: 10px 10px;
+    width: 80%;
+    text-align: center;
+}
+separator h2{
+    font-size:23px;
+    font-weight: 300;
+    margin: 0px auto;
+    padding: 0px 0px;
+    width: 80%;
+    text-align: center;
+}
+header h3{
+    font-size: 25px;
+    font-weight: 100;
+    margin: 0px auto;
+    padding: 0px 0;
+    width: 80%;
+    text-align: center;
+    text-
+}
+header a, a:visited {
+    text-decoration:none;
+    color:#fcfcfc;
+}
+.main {
+    margin: 50px auto;
+    text-align: justify;
+    width: 700px;
+}
+
+.loading {
+}
+
+table.form-tbl {width: 90%;background-color:FCFDFF;}
+table.form-tbl td, table.form-tbl th {padding: 4px 2px;font: 12px/1.3 Open Sans,sans-serif;}
+table.form-tbl th {width: 160px;}
+table.form-tbl input[type="text"], table.form-tbl textarea {width: 75%;}

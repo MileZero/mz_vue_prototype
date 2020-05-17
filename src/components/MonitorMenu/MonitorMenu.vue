@@ -21,7 +21,7 @@ import DropDownArrow from '../DropDownArrow/DropDownArrow.vue';
 const MenuOptions = {
   Dashboard: {
     title: 'Metrics',
-    endpoint: '',
+    endpoint: '/search',
     id: 1,
   },
   RouteMap: {

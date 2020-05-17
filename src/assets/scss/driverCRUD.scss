@@ -1,0 +1,188 @@
+/* Slide menu right width HTML+CSS by Zzbaivong (devs.forumvi.com) */
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.menu-square-button {
+    display: inline-block;
+    margin: 4px;
+    padding: 7px 7px;
+    color: #FFF;
+    background: #23aae4;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+}
+
+.menu-button {
+    display: inline-block;
+    margin: 4px;
+    padding: 7px 20px;
+    color: #FFF;
+    background: #67B5D1;
+}
+
+.menu-button:hover {
+    background: #3184A1;
+    cursor: pointer;
+}
+
+.menu-wrap {
+    background-color: #fff;
+    border-left: 1px solid black;
+    padding: 10px 0;
+    /*    overflow: hidden; */
+    transition: all 0.3s;
+    position: fixed;
+    width: 400px;
+    top: 0;
+    right: -400px;
+    bottom: 0;
+    z-index: 999;
+}
+
+.menu-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 900;
+    overflow-y: hidden;
+/ / hide vertical overflow-x: hidden;
+/ / hide horizontal
+}
+
+.menu-close {
+    background: url(http://i.imgur.com/iHYRssG.png) no-repeat scroll center center transparent;
+    opacity: 0;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: 0;
+    top: 0;
+    text-indent: -9999px;
+    transition: all 0.3s;
+}
+
+.menu-close:hover {
+    background-color: rgba(236, 69, 69, 1);
+    cursor: pointer;
+}
+
+.menu-wrap:hover .menu-close {
+    opacity: 1;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-toggle:checked + .menu-wrap {
+    right: 0;
+}
+
+.menu-toggle:checked ~ .menu-overlay {
+    display: block;
+}
+
+.menu-title {
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+}
+
+.menu-list {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: inherit;
+    display: block;
+    overflow: hidden;
+}
+
+.menu-wrap:hover .menu-list {
+    overflow-y: auto;
+}
+
+.menu-list ul {
+    list-style-type: none;
+}
+
+.menu-list li {
+    display: block;
+}
+
+.menu-list li {
+    border-top: medium none;
+    padding: 10px 40px;
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+}
+
+.menu-list li a {
+    display: block;
+    padding: 10px 40px;
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+}
+
+.menu-list li input:hover {
+    background: #79bdf3;
+    color: black;
+}
+
+.menu-list li input:focus {
+    color: black;
+}
+
+.menu-list li input {
+    border: 0;
+    font-size: 18px;
+    width: 100%;
+    font-weight: 200;
+    color: #aaa;
+    background-color: #eee;;
+    text-align: center;
+}
+
+.menu-list li select {
+    border: 0;
+    color: #aaa;
+    width: 90%;
+    background-color: #eee;;
+    font-weight: 100;
+    font-size: 18px;
+    text-align: center;
+}
+
+.menu-list li button {
+    border: 0;
+    width: 30%;
+    font-weight: 100;
+    font-size: 18px;
+    text-align: center;
+}
+
+.MileZero-expandButton {
+    position: absolute;
+    top: 65px;
+    left: -40px;
+    width: 50px;
+    height: 40px;
+    outline: none;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    padding-top: 10px;
+    font-family: "Roboto", sans-serif;
+    vertical-align: bottom;
+    font-weight: 100;
+}

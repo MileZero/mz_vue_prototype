@@ -27,9 +27,12 @@ export default {
   },
   methods: {
   },
+  mounted() {
+    this.$router.push('search');
+  },
 };
 </script>
 
 <style lang="scss">
-  @import "./_GlobalStyles.scss";
+  @import "./assets/scss/_GlobalStyles.scss";
 </style>

@@ -1,0 +1,39 @@
+/*jsGrid customization to match MileZero look and feel*/
+
+.jsgrid {
+    font-family: verdana;
+    font-size: 12px;
+}
+
+.jsgrid tr:first-child th {
+    padding: 0;
+    border: none;
+}
+
+.jsgrid th {
+    padding: .5em 0;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.jsgrid tr th {
+    border: 0px solid #fcfcfc;
+    color: gray;
+    font-weight: 100;
+}
+
+.jsgrid tr td {
+    border: 0px solid #fcfcfc;
+    color: #2f2f2f;
+    font-size: 14px;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+.jsgrid-alt-row > .jsgrid-cell {
+    background: inherit;
+}
+
+.jsgrid-row > .jsgrid-cell {
+    background: inherit;
+}

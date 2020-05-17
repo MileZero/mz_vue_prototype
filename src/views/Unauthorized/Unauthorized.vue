@@ -17,7 +17,7 @@
 
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="https://milevision.milezero.com/">
-            <img src="../../assets/mzlogoInvert.png" width="200" alt="">
+            <img src="../../assets/imgs/mzlogoInvert.png" width="200" alt="">
         </a>
     </nav>
     <div class="container align-items-center">
@@ -25,7 +25,7 @@
             <div class="col text-center">
                 <h2>
                     You are not authorized to view this page. Please log in.</h2>
-                <img src="../../assets/nowhere.png">
+                <img src="../../assets/imgs/nowhere.png">
             </div>
         </div>
     </div>

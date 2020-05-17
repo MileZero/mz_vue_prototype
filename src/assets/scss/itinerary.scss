@@ -1,0 +1,166 @@
+.mzheader {
+    margin-left: 3rem;
+    width: 1230px;
+}
+.mzlogo {
+    width: 260px;
+}
+.mzheader .display {
+    color:#0c7cba;
+    height:22px;
+}
+.mzheader .about {
+    text-align: right;
+    float: right;
+}
+#maincontent {
+    width: 60%;
+    height: 600px;
+    padding: 30px;
+    float: left;
+}
+#maincontent #itineraryquery {
+    display: block;
+    border: 1px solid;
+    border-radius: 25px;
+    margin: 5px;
+    padding: 5px;
+}
+#maincontent #itineraryquery label,
+#maincontent #itineraryquery textarea {
+    vertical-align:top;
+}
+#maincontent #itinerary {
+    display: inline-block;
+    width: 95rem;
+}
+#containerEvents {
+    float: left;
+    width: 65%;
+}
+.taskType {
+    border-bottom: 1px solid;
+}
+#maincontent #subentities {
+    display: inline;
+}
+#subentities {
+    width:200px;
+    height:483px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border:1px solid #C9C9C9;
+    background-color:lightgrey;
+    margin-left:2em;
+    float: left;
+}
+.subentityheader {
+    color:      darkslategrey;
+    width:      100%;
+    text-align: center;
+}
+.subentityheader p {
+    margin-bottom: 30px;
+}
+.subentityelement {
+    text-align: center;
+    margin: 30px 0px;
+}
+#footer1 {
+    text-align: center;
+    color:      lightgrey;
+    width:      100%;
+    position:   absolute;
+    right:      0;
+    bottom:     0;
+    left:       0;
+    padding:    1rem;
+    background-color: #efefef;
+}
+
+.btn {
+  background: #0c7cba;
+  background-image: -webkit-linear-gradient(top, #0c7cba, b0c4de);
+  background-image: -moz-linear-gradient(top, #0c7cba, b0c4de);
+  background-image: -ms-linear-gradient(top, #0c7cba, b0c4de);
+  background-image: -o-linear-gradient(top, #0c7cba, b0c4de);
+  background-image: linear-gradient(to bottom, #0c7cba, b0c4de);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+.btn75 {
+  width: 25rem;
+  margin: 1rem;
+}
+.btn-macro {
+  background: orange;
+}
+.accordion-toggle {
+    cursor: pointer;
+    text-decoration: underline;
+    border: 3px solid #0c7cba;
+    padding: 3px;
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+}
+.accordion-content {
+    display: none;
+    margin-left: 3rem;
+    border: 1px solid;
+    padding: .5rem;
+}
+.accordion-content.default {
+    display: block;
+}
+.link {
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+    font-weight: bold;
+}
+.expandlink {
+    cursor: pointer;
+    text-decoration: underline;
+    margin: 3rem 0rem;
+}
+.collapselink {
+    cursor: pointer;
+    text-decoration: underline;
+    margin: 3rem 0rem;
+}
+#alert-message .error {
+    font-size: 24px;
+    color: red;
+    font-style: italic;
+}
+.event-success {
+    color: green;
+}
+.event-fail {
+    color: red;
+}
+#drivers {
+    border-top: 2px solid;
+    padding-top: 2rem;
+}
+.notesSection {
+    border: 1px dotted gray;
+}

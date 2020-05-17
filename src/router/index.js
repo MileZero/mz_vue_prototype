@@ -12,10 +12,7 @@ export default new Router({
     {
       path: '/',
       name: 'App',
-      components: {
-        default: App,
-        ContentDisplay: null,
-      },
+      component: App,
       beforeEnter: authGuard,
     },
     {
@@ -23,6 +20,13 @@ export default new Router({
       name: 'Template',
       components: {
         ContentDisplay: () => import('../views/_Templates/PageViewTemplate/PageViewTemplate.vue'),
+      },
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      components: {
+        ContentDisplay: () => import('../views/Search/Search.vue'),
       },
     },
   ],
