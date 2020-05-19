@@ -41,297 +41,37 @@
       <tr>
         <td>
           <table style="width: 100%" id="summary">
-            <tr>
-              <td>
+            <tr v-if="this.metrics">
+              <td v-for="(metric, metricName) in metrics" v-bind:key="metricName">
                 <div class="giant_text" data-toggle="tooltip"
                   style="margin-left:2em;color:darkslategrey"
                   title="Jump to Orders"
                   onclick="postit('landing.jsp')">
-                  <i class="fa fa-file-image-o" aria-hidden="true" style="color:grey"></i>
-                  &nbsp;&nbsp;&nbsp;Plan
+                  <i v-bind:class="metric.iconClass" class="fa" aria-hidden="true"
+                    style="color:grey"></i>
+                  &nbsp;&nbsp;&nbsp;{{ metric.name }}
                 </div>
                 <table id="block1" style="text-align: center">
                   <tr>
                     <td colspan="4" style="width:240px">
                       <div class="super_giant_text orgShipments" style="color:lightsteelblue"
                         id="orgShipments"
-                        >0
+                        > {{ metric.value }}
                       </div>
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td v-for="(submetric, submetricName) in metric.submetrics"
+                    v-bind:key="submetricName">
                       <div class="major_text orgReattempts" style="color:lightsteelblue"
                         id="orgReattempts"
-                        >0
+                        >{{ submetric.value }}
                       </div>
                       <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
                         title="Click for Details"
                         onclick="postitMore('reports/drilldown.jsp',
                         '&reportType=reattempts&title=REATTEMPT')">
-                        Reattempts
-                      </div>
-                    </td>
-                    <td>
-                      <div class="major_text orgManifest" style="color:lightsteelblue"
-                        id="orgManifest"
-                        >0
-                      </div>
-                      <div class="title_text" style="color:lightslategray">
-                        Manifest
-                      </div>
-                    </td>
-                    <td>
-                      <div class="major_text orgEDI" style="color:lightsteelblue" id="orgEDI"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp', '&reportType=edi&title=EDI')">
-                        EDI
-                      </div>
-                    </td>
-                    <td id="scratchParent">
-                      <div class="major_text orgScratches" style="color:lightsteelblue;"
-                        id="orgScratches"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" id="orgScratchesTitle"
-                        style="color:lightslategray;"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=scratches&title=Scratches')">
-                        Scratches
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-              <td>
-                <div data-toggle="tooltip" class="giant_text"
-                  style="margin-left:2em;color:darkslategrey"
-                  title="Jump to Sortation"
-                  onclick="postit('sort.jsp')">
-                  <i class="fa fa-sliders" aria-hidden="true" style="color:grey"></i>
-                  &nbsp;&nbsp;&nbsp;Sortation
-                </div>
-                <table style="text-align: center">
-                  <tr>
-                    <td colspan="4" style="width:240px">
-                      <div class="super_giant_text orgSort" style="color:lightsteelblue"
-                        id="orgSort"
-                        >0%
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="major_text orgRecieved" style="color:lightsteelblue"
-                        id="orgRecieved"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=sortation&title=SORTATION')">
-                        Planned
-                      </div>
-                    </td>
-                    <td>
-                      <div class="major_text orgNotSorted" style="color:lightsteelblue"
-                        id="orgNotSorted"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=unsorted&title=PLANNED')">
-                        Pending
-                      </div>
-                    </td>
-                    <td>
-                      <div class="major_text orgShort" style="color:lightsteelblue" id="orgShort"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=short&title=SHORT')">
-                        Short
-                      </div>
-                    </td>
-                    <td>
-                      <div class="major_text orgSorted" style="color:lightsteelblue" id="orgSorted"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=swept&title=SWEPT')">
-                        Received
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-              <td>
-                <div data-toggle="tooltip" class="giant_text"
-                  style="margin-left:2em;color:darkslategrey"
-                  title="Jump to Dispatch"
-                  onclick="postit('dispatch.jsp')">
-                  <i class="fa fa-arrows-alt" aria-hidden="true" style="color:grey"></i>
-                  &nbsp;&nbsp;&nbsp;Dispatch
-                </div>
-                <table style="text-align: center">
-                  <tr>
-                    <td colspan="3" style="width:240px">
-                      <div class="super_giant_text orgShipped" style="color:lightsteelblue"
-                        id="orgShipped"
-                        >0%
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="major_text orgRouted" style="color:lightsteelblue" id="orgRouted"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=sortation&title=PLANNED')">
-                        Planned
-                      </div>
-                    </td>
-                    <td>
-                      <div class="major_text orgLoaded" style="color:lightsteelblue"
-                        id="orgNotDispatched"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=unscanned&title=UNSCANNED')">
-                        Unscanned
-                      </div>
-                    </td>
-                    <td>
-                      <div class="major_text orgLoaded" style="color:lightsteelblue" id="orgLoaded"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=loaded&title=LOAD')">
-                        Loaded
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-              <td>
-                <div data-toggle="tooltip" class="giant_text"
-                  style="margin-left:2em;color:darkslategrey"
-                  title="Jump to Drivers"
-                  onclick="postit('reports/drivers.jsp')">
-                  <i class="fa fa-truck" aria-hidden="true" style="color:grey"></i>
-                  &nbsp;&nbsp;&nbsp;Delivery
-                </div>
-                <table style="text-align: center">
-                  <tr>
-                    <td colspan="3" style="width:240px">
-                      <div class="super_giant_text orgCompleted" style="color:lightsteelblue"
-                        id="orgCompleted"
-                        >0%
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="major_text orgDeliver" style="color:lightsteelblue"
-                        id="orgDeliver"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=delivery&title=DELIVERY')">
-                        Deliver
-                      </div>
-                    </td>
-                    <td>
-                      <div class="major_text orgUndeliver" style="color:lightsteelblue"
-                        id="orgUndeliver"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=undelivery&title=UNDELIVERABLE')">
-                        Undeliver
-                      </div>
-                    </td>
-                    <td>
-                      <div class="major_text orgReject" style="color:lightsteelblue" id="orgReject"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=reject&title=REJECT')">
-                        Rejects
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-              <td>
-                <div class="giant_text" style="color:darkslategrey">
-                    <i class="fa fa-dropbox" aria-hidden="true" style="color:grey"></i>
-                    &nbsp;&nbsp;&nbsp;Returns
-                </div>
-                <table style="text-align: center">
-                  <tr>
-                    <td colspan="3" style="width:240px">
-                      <div class="super_giant_text orgReturn" style="color:lightsteelblue"
-                      id="orgReturn">0%
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="major_text orgReturns" style="color:lightsteelblue"
-                        id="orgReturns"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=returns&title=RETURN')">
-                        Returns
-                      </div>
-                    </td>
-                    <td>
-                      <div class="major_text orgReturned" style="color:lightsteelblue"
-                        id="orgReturned"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=returned&title=RETURN SUCCESS')">
-                        Returned
-                      </div>
-                    </td>
-                    <td>
-                      <div class="major_text orgFailed" style="color:lightsteelblue" id="orgFailed"
-                        >0
-                      </div>
-                      <div data-toggle="tooltip" class="title_text" style="color:lightslategray"
-                        title="Click for Details"
-                        onclick="postitMore('reports/drilldown.jsp',
-                        '&reportType=failed&title=RETURN FAILURE')">
-                        Failed
+                        {{ submetric.name }}
                       </div>
                     </td>
                   </tr>
@@ -354,113 +94,16 @@
               <td colspan="5" style="background-color: #f6f6f6">
                 <table style="width: 100%;table-layout: fixed">
                   <tr>
-                    <td style="width:4em;margin: 1em 0 1em">
-                      <button id="searchBtn" class="dropdown-item btn btn-primary"
+                    <td v-for="(option, index) in options" v-bind:key="index"
+                    style="width:4em;margin: 1em 0 1em">
+                      <button v-bind:id="option.id" v-bind:class="option.buttonClass"
+                        class="dropdown-item btn"
                         data-toggle="tooltip"
                         title="Search orders"
                         onclick="postit('./proof.jsp')"
                         style="width:100%">
-                        <i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i>
-                        Search
-                      </button>
-                    </td>
-                    <td style="width:4em;margin: 1em 0 1em">
-                      <button id="loadscanBtn" class="dropdown-item btn btn-danger"
-                        data-toggle="tooltip"
-                        title="View Loadscan Failures"
-                        onclick="postit('reports/loadscans.jsp')"
-                        style="width:100%">
-                        <i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i>
-                        Loadscans
-                      </button>
-                    </td>
-                    <td style="width:4em;margin: 1em 0 1em">
-                      <button id="undeliverableBtn" class="dropdown-item btn btn-primary"
-                        data-toggle="tooltip"
-                        title="View Delivery Failures"
-                        onclick="postBigSite('reports/sortAreaViewer.jsp')"
-                        style="width:100%">
-                        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
-                        Undeliverables
-                      </button>
-                    </td>
-                    <td style="width:4em;margin: 1em 0 1em">
-                      <button class="dropdown-item btn btn-primary"
-                        data-toggle="tooltip"
-                        title="View Drivers Report"
-                        onclick="postit('reports/drivers.jsp')"
-                        style="width:100%">
-                        <i class="fa fa-truck fa-fw" aria-hidden="true"></i>
-                        Drivers
-                      </button>
-                    </td>
-                    <td style="width:4em;margin: 1em 0 1em">
-                      <button class="dropdown-item btn btn-primary"
-                        data-toggle="tooltip"
-                        title="View Payment Report"
-                        onclick="postit('reports/paymentReport.jsp')"
-                        style="width:100%">
-                        <i class="fa fa-money fa-fw" aria-hidden="true"></i>
-                        Payments
-                      </button>
-                    </td>
-                    <td style="width:4em;margin: 1em 0 1em">
-                      <button class="dropdown-item btn btn-primary"
-                        data-toggle="tooltip"
-                        title="View History Report"
-                        onclick="postit('./proofOfDelivery.jsp')"
-                        style="width:100%">
-                        <i class="fa fa-history fa-fw" aria-hidden="true"></i>
-                        History
-                      </button>
-                    </td>
-                    <td style="width:4em;margin: 1em 0 1em">
-                        <button class="dropdown-item btn btn-primary"
-                                data-toggle="tooltip"
-                                title="View History Report"
-                                onclick="postit('reports/history.jsp')"
-                                style="width:100%">
-                            <i class="fa fa-history fa-fw" aria-hidden="true"></i>
-                            History
-                        </button>
-                    </td>
-                    <td style="width:4em;margin: 1em 0 1em">
-                        <button class="dropdown-item btn btn-primary"
-                                data-toggle="tooltip"
-                                title="View Location Accuracy Report"
-                                onclick="postit('reports/locationMetrics.jsp')"
-                                style="width:100%">
-                            <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
-                            Location
-                        </button>
-                    </td>
-                    <td style="width:4em;margin: 1em 0 1em">
-                        <button class="dropdown-item btn btn-primary"
-                                data-toggle="tooltip"
-                                title="View Route Report"
-                                onclick="postit('reports/routeMetrics.jsp')"
-                                style="width:100%">
-                            <i class="fa fa-map fa-fw" aria-hidden="true"></i>
-                            Route
-                        </button>
-                    </td>
-                    <td style="width:4em;margin: 1em 0 1em">
-                        <button class="dropdown-item btn btn-primary"
-                                title="View Stop Report"
-                                onclick="postit('reports/stopMetrics.jsp?customerName=925&
-                                nodeName=925&permit=false&currency=USD&timezone=America/New_York')"
-                                style="width:100%">
-                            <i class="fa fa-home fa-fw" aria-hidden="true"></i>
-                            Stop
-                        </button>
-                    </td>
-                    <td style="width:4em;margin: 1em 0 1em">
-                      <button class="dropdown-item btn btn-primary"
-                        title="View Task Report"
-                        onclick="postit('reports/taskMetrics.jsp')"
-                        style="width:100%">
-                        <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
-                        Task
+                        <i v-bind:class="option.iconClass" class="fa fa-fw" aria-hidden="true"></i>
+                        {{ option.label }}
                       </button>
                     </td>
                   </tr>
@@ -488,7 +131,10 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import ConnectionOptions from '@/service/local-connection.json';
+import * as metricsMappings from './metricsMappings';
+import * as optionMappings from './optionMappings';
 
 export default {
   props: {
@@ -497,30 +143,61 @@ export default {
     return {
       userInfo: this.$auth.user,
       org: this.$auth.org,
-      execStats: {
-
-      },
-
+      metrics: [],
+      metricsMappings: metricsMappings[this.$auth.org.org.name],
+      options: optionMappings[this.$auth.org.org.name],
     };
   },
-  methods: {
+  computed: {
+    ...mapGetters('Hub', [
+      'selectedHub',
+    ]),
   },
-  mounted() {
-    console.log('USER: ', this.userInfo);
-    console.log('ORG: ', this.org);
-    this.delivPerfUtil.initGrid();
-    orgUtil.setUiOpts('<%= uiOptsJson %>');
-    this.orgUtil.setupMzAjaxHooks('<%= request.getParameter("authToken")%>');
-    function subentityBuilderCallback(
-      orgName, nodeName, subentityTypes, currency, timezone, associateID
-      ) {
-      buildSubentity('subentities', subentityTypes, orgName, nodeName, associateID, currency,
-        timezone, 'darkslategrey', 'rgba(169, 169, 169, 0.55)');
-    }
-    this.orgUtil.getEnv('hidden', '<%= request.getAttribute("node")%>', '925');
-    this.orgUtil.getExecStats('<%= request.getAttribute("node")%>', 'staples');
-    this.orgUtil.setExecStats('staples', '<%= request.getAttribute("node")%>', 'staples', '<%= request.getParameter("authToken")%>');
-    // Temporary flag to show the metric only to two hubs.
+  methods: {
+    async getExecStats() {
+      try {
+        const url = new URL(`${ConnectionOptions.mileviewUrl}/stats/executing`);
+        url.search = new URLSearchParams({
+          node: this.selectedHub.referenceId,
+          carrier: this.org.org.name,
+        }).toString();
+
+        const metricsObject = await (await fetch(url, {
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+            Accept: 'application/json',
+            Authentication: this.$auth.authToken,
+          },
+        })).json();
+        return metricsObject.metrics;
+      } catch (e) {
+        return e;
+      }
+    },
+    filterMetrics(metrics) {
+      const mappedMetrics = this.metricsMappings;
+      for (let i = 0; i < metrics.length; i += 1) {
+        const currentMetric = metrics[i];
+        // Check if passed metric is needed for current org
+        if (mappedMetrics[currentMetric.name]) {
+          const metricToMap = mappedMetrics[currentMetric.name];
+          metricToMap.value = currentMetric.value;
+          // Iterate through submetrics and populate if needed
+          for (let j = 0; j < currentMetric.submetrics.length; j += 1) {
+            const currentSubmetric = currentMetric.submetrics[j];
+            if (metricToMap.submetrics[currentSubmetric.name]) {
+              metricToMap.submetrics[currentSubmetric.name].value = currentSubmetric.value;
+            }
+          }
+        }
+      }
+      return mappedMetrics;
+    },
+  },
+  async mounted() {
+    // initiate jsgrid
+    this.metrics = this.filterMetrics(await this.getExecStats());
     /*
     if(node != "8773" && node != "3034") {
         console.log(node);
@@ -531,8 +208,8 @@ export default {
         document.getElementById("scratchParent").style.width = '0px';
     }
     */
-    loadGraph();
-    autoUpdate();
+    // loadGraph();
+    // autoUpdate();
   },
 };
 </script>

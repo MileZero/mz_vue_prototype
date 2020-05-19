@@ -93,6 +93,7 @@ export const useAuth0 = ({
         isAuthenticated: false,
         user: {},
         org: {},
+        authToken: '',
         auth0Client: null,
         popupOpen: false,
         error: null,
@@ -111,6 +112,7 @@ export const useAuth0 = ({
       this.auth0Client = instance || new Auth0Lock(AuthOptions.clientId, AuthOptions.domain, AuthOptions.options);
       if (!this.isAuthenticated) this.auth0Client.show();
       this.auth0Client.on("authenticated", (authResult) => {
+        this.authToken = `Bearer ${authResult.idToken}`;
         this.auth0Client.getUserInfo(authResult.accessToken, async (error, userProfile) => {
           if (error) return error;
           this.user = userProfile;

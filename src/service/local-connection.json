@@ -2,5 +2,5 @@
   "name": "MileVision Local Dev",
   "mvbUrl": "http://localhost:3001/mvb-svc/api",
   "websocketUrl": "ws://localhost:3001/mvb-svc/api/websocket",
-  "mileviewUrl": "http://localhost:3001/mv/"
+  "mileviewUrl": "http://localhost:3001/mv"
 }

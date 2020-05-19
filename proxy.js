@@ -1,4 +1,5 @@
 
+'use strict';
 const http = require('http');
 const httpProxy = require('http-proxy');
 
@@ -18,7 +19,9 @@ const proxy = httpProxy.createProxyServer({
   }
 }).on('proxyRes', (proxyRes, req, res) => {
   proxyRes.headers['Access-Control-Allow-Origin'] = req.headers.origin;
-  proxiedCookie = proxyRes.headers['set-cookie'][1];
+  if (proxyRes.headers['set-cookie']) {
+    proxiedCookie = proxyRes.headers['set-cookie'][1];
+  }
   if (proxiedCookie && proxiedCookie.includes('mz_auth_token') && proxiedCookie.includes(' secure;')) {
     proxyRes.headers['set-cookie'][1] = proxiedCookie.split(' secure;').join('');
   }
@@ -40,7 +43,7 @@ http.createServer((req, res) => {
   } else if (req.url.startsWith('/mvb-svc/api/websocket')) {
     proxy.ws(req, res, { target: 'wss://milevision-stage.milezero.com' });
   } else if (req.url.startsWith('/mv')) {
-    proxy.web(req, res, { target: 'https://view.stage.milezero.com/mv/' });
+    proxy.web(req, res, { target: 'https://view.stage.milezero.com' });
   }
   // } else {
   // proxy.web(req, res, {target: 'https://milevision-stage.milezero.com'});
