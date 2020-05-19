@@ -65,6 +65,11 @@
   margin-top: 15px;
 }
 
+a:focus {
+  color: white;
+  text-decoration: none;
+}
+
 .MenuBarOption::before {
   content: "";
   width: 50px;

@@ -1,5 +1,6 @@
 /* eslint-disable */
 import Vue from 'vue';
+import store from '@/store/store';
 import Auth0Lock from 'auth0-lock';
 import ConnectionOptions from '../local-connection.json';
 
@@ -123,6 +124,7 @@ export const useAuth0 = ({
           this.org = await getOrg(userProfile.organization.Alabo.orgId);
           if (this.org.org) {
             this.isAuthenticated = true;
+            store.commit('Hub/setHub', this.org.facilities[0]);
           }
           this.loading = false;
           this.auth0Client.hide();

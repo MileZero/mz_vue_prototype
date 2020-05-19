@@ -1,16 +1,6 @@
 <template>
   <div class="Search">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <!-- For backards compatibility with v4 names. Please use new names only to get rid of this. -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css">
-
-    <!-- Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    <table style="min-width:800px;margin-left: 30px;width:95%;">
+    <table width="95%" style="min-width:800px;margin-left: 30px">
       <tr>
         <td style="height: 1em;"></td>
       </tr>
@@ -498,13 +488,51 @@
 </template>
 
 <script>
+import ConnectionOptions from '@/service/local-connection.json';
+
 export default {
   props: {
   },
   data() {
     return {
       userInfo: this.$auth.user,
+      org: this.$auth.org,
+      execStats: {
+
+      },
+
     };
+  },
+  methods: {
+  },
+  mounted() {
+    console.log('USER: ', this.userInfo);
+    console.log('ORG: ', this.org);
+    this.delivPerfUtil.initGrid();
+    orgUtil.setUiOpts('<%= uiOptsJson %>');
+    this.orgUtil.setupMzAjaxHooks('<%= request.getParameter("authToken")%>');
+    function subentityBuilderCallback(
+      orgName, nodeName, subentityTypes, currency, timezone, associateID
+      ) {
+      buildSubentity('subentities', subentityTypes, orgName, nodeName, associateID, currency,
+        timezone, 'darkslategrey', 'rgba(169, 169, 169, 0.55)');
+    }
+    this.orgUtil.getEnv('hidden', '<%= request.getAttribute("node")%>', '925');
+    this.orgUtil.getExecStats('<%= request.getAttribute("node")%>', 'staples');
+    this.orgUtil.setExecStats('staples', '<%= request.getAttribute("node")%>', 'staples', '<%= request.getParameter("authToken")%>');
+    // Temporary flag to show the metric only to two hubs.
+    /*
+    if(node != "8773" && node != "3034") {
+        console.log(node);
+        document.getElementById("orgScratches").style.visibility = 'hidden';
+        document.getElementById("orgScratchesTitle").style.visibility = 'hidden';
+        document.getElementById("orgScratches").style.width = '0px';
+        document.getElementById("orgScratchesTitle").style.width = '0px';
+        document.getElementById("scratchParent").style.width = '0px';
+    }
+    */
+    loadGraph();
+    autoUpdate();
   },
 };
 </script>

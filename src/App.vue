@@ -29,6 +29,7 @@ export default {
   },
   mounted() {
     this.$router.push('search');
+    this.$store.commit('hub/SetHub', this.$auth.org.facilities[0]);
   },
 };
 </script>

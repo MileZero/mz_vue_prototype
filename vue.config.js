@@ -9,7 +9,7 @@ module.exports = {
       chunks: ['chunk-vendors', 'chunk-common', 'index'],
     },
   },
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.resolve.alias.set('@', helpers.root('src'));
-  }
+  },
 };

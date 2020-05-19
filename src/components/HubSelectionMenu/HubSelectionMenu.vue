@@ -1,7 +1,7 @@
 <template>
   <div class="HubSelectionMenu" v-on:click="dropdown">
-    <div class="HubSelectionMenuContent" v-if="this.$auth.org.facilities">
-      <div class="HubInfo">{{this.$auth.org.facilities[currentHubIndex].label}}
+    <div class="HubSelectionMenuContent" v-if="selectedHub">
+      <div class="HubInfo">{{selectedHub.label}}
       </div>
       <div class="DateTime">
         <div>{{currentTime}}</div>
@@ -12,8 +12,8 @@
           <div class="MenuOptionsListItem HubListItem"
               v-for="(hub, index) in this.$auth.org.facilities"
               :key="hub.id"
-              v-bind:class="index === currentHubIndex ? 'SelectedHub' : ''"
-              v-on:click="setHub(index)">
+              v-bind:class="hub.id === selectedHub.id ? 'SelectedHub' : ''"
+              v-on:click="selectHub(index)">
             {{hub.label}}
           </div>
         </div>
@@ -23,12 +23,13 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex';
+
 const moment = require('moment-timezone');
 
 export default {
   data() {
     return {
-      currentHubIndex: 0,
       dropdownSelected: false,
       currentDate: moment().format('dddd, MMMM DD'),
       currentTime: moment().format('hh:mm A (z)'),
@@ -36,21 +37,29 @@ export default {
   },
   props: {
   },
+  computed: {
+    ...mapGetters('Hub', [
+      'selectedHub',
+    ]),
+  },
   methods: {
+    ...mapMutations('Hub', [
+      'setHub',
+    ]),
     dropdown() {
       this.dropdownSelected = !this.dropdownSelected;
     },
-    setHub(hubIndex) {
-      this.currentHubIndex = hubIndex;
+    selectHub(hubIndex) {
+      this.setHub(this.$auth.org.facilities[hubIndex]);
       this.setDateTime();
       this.dropdownSelected = false;
     },
     setDateTime() {
-      this.currentDate = moment.tz(this.$auth.org.facilities[this.currentHubIndex].location.timezone).format('dddd, MMMM DD');
-      this.currentTime = moment.tz(this.$auth.org.facilities[this.currentHubIndex].location.timezone).format('hh:mm A (z)');
+      this.currentDate = moment.tz(this.selectedHub.location.timezone).format('dddd, MMMM DD');
+      this.currentTime = moment.tz(this.selectedHub.location.timezone).format('hh:mm A (z)');
     },
   },
-  created() {
+  mounted() {
     this.setDateTime();
     setInterval(this.setDateTime, 1000 * 60);
   },
