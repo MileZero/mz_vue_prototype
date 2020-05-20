@@ -1,5 +1,5 @@
 /* eslint-disable */
-import wsClient from '../../service/server/websocket';
+import wsClient from '@/service/server/websocket.js';
 
 function createWebSocketPlugin(websocketClient) {
   return (store) => {

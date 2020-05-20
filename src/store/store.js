@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 /* Import Plugins */
-import WebsocketPlugin from './plugins/websocket';
+// import WebsocketPlugin from './plugins/websocket';
 /* Import Modules */
 import BreadCrumbs from './modules/BreadCrumbs';
 import Hub from './modules/Hub';
@@ -13,7 +13,7 @@ const store = new Vuex.Store({
     BreadCrumbs,
     Hub,
   },
-  plugins: [WebsocketPlugin],
+  // plugins: [WebsocketPlugin],
 });
 
 export default store;
