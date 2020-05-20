@@ -16,7 +16,7 @@
             "sso": true
         },
         "theme": {
-            "logo": "/assets/logo-text-auth0.png"
+            "logo": "assets/logo-text-auth0.png"
         }    
     }
 }

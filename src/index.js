@@ -5,7 +5,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store/store'
 import { Auth0Plugin } from './service/auth';
-import * as AuthOptions from './service/auth/auth0-local-connection.json';
+import * as AuthOptions from './service/auth/auth0-local-connection.json'
 
 Vue.config.productionTip = false;
 

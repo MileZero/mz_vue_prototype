@@ -247,7 +247,7 @@ export default {
   async mounted() {
     this.metrics = this.filterMetrics(await this.getExecStats());
     this.reports = await this.getReports();
-    // this.buildGraph(this.reports);
+    this.buildGraph(this.reports);
   },
   watch: {
     async selectedHub() {

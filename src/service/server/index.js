@@ -12,12 +12,12 @@ app.use(bodyParser.urlencoded({
 
 app.use(morgan('combined'));
 
-app.use(express.static(join(__dirname, '../../..', 'public/')));
+app.use(express.static(join(__dirname, '../../..', 'dist/')));
 
 // app.use("/api", require("./api"));
 
 app.get('*', (req, res) => {
-  res.sendFile(join(__dirname, '../../..', 'public', 'index.html'));
+  res.sendFile(join(__dirname, '../../..', 'dist', 'index.html'));
 });
 
 const port = process.env.PORT || 3000;
