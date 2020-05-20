@@ -56,7 +56,7 @@
                     <td colspan="4" style="width:240px">
                       <div class="super_giant_text orgShipments" style="color:lightsteelblue"
                         id="orgShipments"
-                        > {{ metric.value }}
+                        >{{ metric.value }}
                       </div>
                     </td>
                   </tr>
@@ -87,7 +87,10 @@
                   title="Historical view of planned versus actual routes"
                   class="giant_text"
                   style="color:darkslategrey;margin: 2em">FULFILLMENT SUMMARY</span><br>
-                <div id="container" style="width:95%; height:300px; border:none;margin: 2em"></div>
+                <div id="container" style="width:95%;
+                    height:300px; border:none;margin: 2em">
+                  <!-- <Highchart :options="chartOptions" /> -->
+                </div>
               </td>
             </tr>
             <tr>
@@ -132,7 +135,9 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { Chart } from 'highcharts-vue';
 import ConnectionOptions from '@/service/local-connection.json';
+import chartOptions from './chartOptions';
 import * as metricsMappings from './metricsMappings';
 import * as optionMappings from './optionMappings';
 
@@ -146,7 +151,12 @@ export default {
       metrics: [],
       metricsMappings: metricsMappings[this.$auth.org.org.name],
       options: optionMappings[this.$auth.org.org.name],
+      reports: null,
+      chartOptions,
     };
+  },
+  components: {
+    // Highchart: Chart,
   },
   computed: {
     ...mapGetters('Hub', [
@@ -194,10 +204,49 @@ export default {
       }
       return mappedMetrics;
     },
+    async getReports() {
+      const twoWeeksPrior = new Date(new Date() - 12096e5).toISOString();
+      const currentTime = new Date().toISOString();
+      try {
+        const url = new URL(`${ConnectionOptions.mileviewUrl}/reports`);
+        url.search = new URLSearchParams({
+          node: this.selectedHub.referenceId,
+          report: 'route',
+          driverName: null,
+          filter: 'bypass',
+          timeStart: twoWeeksPrior,
+          timeEnd: currentTime,
+          page: 0,
+          pageSize: 100,
+        }).toString();
+
+        const reportsSummary = await (await fetch(url, {
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+            Accept: 'application/json',
+            Authentication: this.$auth.authToken,
+          },
+        })).json();
+        return reportsSummary;
+      } catch (e) {
+        return e;
+      }
+    },
+    buildGraph(summary) {
+      const series = (summary && summary.series) ? summary.series : [];
+      const categories = (summary && summary.categories) ? summary.categories : null;
+      if (categories !== null) {
+        this.chartOptions.xAxis.categories = categories;
+        this.chartOptions.series = series;
+      }
+    },
   },
   async mounted() {
     // initiate jsgrid
     this.metrics = this.filterMetrics(await this.getExecStats());
+    this.reports = await this.getReports();
+    this.buildGraph(this.reports);
     /*
     if(node != "8773" && node != "3034") {
         console.log(node);
@@ -210,6 +259,13 @@ export default {
     */
     // loadGraph();
     // autoUpdate();
+  },
+  watch: {
+    async selectedHub() {
+      this.metrics = this.filterMetrics(await this.getExecStats());
+      this.reports = await this.getReports();
+      this.buildGraph(this.reports);
+    },
   },
 };
 </script>

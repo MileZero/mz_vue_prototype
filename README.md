@@ -38,7 +38,8 @@ src/main.js: Remove router param from new Vue({...}).$mount(#App) statement
 
 ### Running locally
 ```
-Run both commands concurrently:
+Run all commands concurrently:
+node proxy.js    - Allows communication with staging
 npm run devBuild - watches code for changes to build bundle
 npm run devServe - serves application to localhost:3000
 ```

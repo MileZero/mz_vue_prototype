@@ -3,13 +3,13 @@ export const staples = [
     label: 'Search',
     id: 'searchBtn',
     buttonClass: 'btn-primary',
-    iconClass: 'fa-exclamation-triangle'
+    iconClass: 'fa-exclamation-triangle',
   },
   {
     label: 'Loadscans',
     id: 'loadscanBtn',
     buttonClass: 'btn-danger',
-    iconClass: 'fa-exclamation-triangle' ,
+    iconClass: 'fa-exclamation-triangle',
   },
   {
     label: 'Undeliverables',
@@ -48,13 +48,13 @@ export const harveynorman = [
     label: 'Search',
     id: 'searchBtn',
     buttonClass: 'btn-primary',
-    iconClass: 'fa-exclamation-triangle'
+    iconClass: 'fa-exclamation-triangle',
   },
   {
     label: 'Manifest',
     id: 'loadscanBtn',
     buttonClass: 'btn-danger',
-    iconClass: 'fa-clipboard' ,
+    iconClass: 'fa-clipboard',
   },
   {
     label: 'Create',
