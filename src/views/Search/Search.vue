@@ -87,10 +87,8 @@
                   title="Historical view of planned versus actual routes"
                   class="giant_text"
                   style="color:darkslategrey;margin: 2em">FULFILLMENT SUMMARY</span><br>
-                <div id="container" style="width:95%;
-                    height:300px; border:none;margin: 2em">
-                  <!-- <Highchart :options="chartOptions" /> -->
-                </div>
+                  <Highchart :options="chartOptions" style="width:95%;
+                    height:300px; border:none;margin: 2em"/>
               </td>
             </tr>
             <tr>
@@ -136,10 +134,14 @@
 <script>
 import { mapGetters } from 'vuex';
 import { Chart } from 'highcharts-vue';
+import Highcharts from 'highcharts';
+import exportingInit from 'highcharts/modules/exporting';
 import ConnectionOptions from '@/service/local-connection.json';
 import chartOptions from './chartOptions';
 import * as metricsMappings from './metricsMappings';
 import * as optionMappings from './optionMappings';
+
+exportingInit(Highcharts);
 
 export default {
   props: {
@@ -156,7 +158,7 @@ export default {
     };
   },
   components: {
-    // Highchart: Chart,
+    Highchart: Chart,
   },
   computed: {
     ...mapGetters('Hub', [
@@ -243,22 +245,9 @@ export default {
     },
   },
   async mounted() {
-    // initiate jsgrid
     this.metrics = this.filterMetrics(await this.getExecStats());
     this.reports = await this.getReports();
-    this.buildGraph(this.reports);
-    /*
-    if(node != "8773" && node != "3034") {
-        console.log(node);
-        document.getElementById("orgScratches").style.visibility = 'hidden';
-        document.getElementById("orgScratchesTitle").style.visibility = 'hidden';
-        document.getElementById("orgScratches").style.width = '0px';
-        document.getElementById("orgScratchesTitle").style.width = '0px';
-        document.getElementById("scratchParent").style.width = '0px';
-    }
-    */
-    // loadGraph();
-    // autoUpdate();
+    // this.buildGraph(this.reports);
   },
   watch: {
     async selectedHub() {
