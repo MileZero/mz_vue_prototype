@@ -1,0 +1,22 @@
+div.Unauthorized {
+  background-color: #3a3e46;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+div.container {
+  margin-top: 10%;
+}
+
+h2 {
+  color: #cdcfd2;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #abb2be;
+}
+
+nav {
+  filter: drop-shadow(2px 1px 0 #777) drop-shadow(-1px -1px 0 #555);
+}

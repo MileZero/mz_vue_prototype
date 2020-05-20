@@ -1,0 +1,400 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family:"Helvetica", Arial, sans-serif;
+    font-size: 12px;
+}
+
+#shippingMenu[target="_blank"] {
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+    background-image: url(../imgs/noon/noonLogo.jpg);
+    background-size: 90px;
+    height:60px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+    position: relative;
+    min-width: 1200px;
+}
+
+#shippingMenu[target="harveynorman"] {
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: 15px;
+    height:60px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+    position: relative;
+    color:#777777;
+    border:1px;
+    border-color: #e7e7e7;
+}
+
+#shippingMenu[target="harveynormanprod"] {
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: 15px;
+    height: 60px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+    position: relative;
+    color: #777777;
+    border: 1px;
+    border-color: #e7e7e7;
+}
+
+#shippingMenu[target="m3"] {
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: 15px;
+    height:60px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+    position: relative;
+    color:#777777;
+    border:1px;
+    border-color: #e7e7e7;
+}
+
+#shippingMenu[target="endeavour"] {
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: 15px;
+    height: 60px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+    position: relative;
+    color: #777777;
+    border: 1px;
+    border-color: #e7e7e7;
+}
+
+#shippingMenu[target="m3-sandbox"] {
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: 15px;
+    height:60px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+    position: relative;
+    color:#777777;
+    border:1px;
+    border-color: #e7e7e7;
+}
+
+#shippingMenu[target="olo"] {
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+    background-position-x: 5px;
+    background-position-y: 5px;
+    height:80px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+    position: relative;
+    color:#777777;
+    border:1px;
+    border-color: #e7e7e7;
+}
+
+#shippingMenu[target="olo-sandbox"] {
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+    background-position-x: 5px;
+    background-position-y: 5px;
+    height:80px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+    position: relative;
+    color:#777777;
+    border:1px;
+    border-color: #e7e7e7;
+}
+#shippingMenu[target="staples"] {
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: 15px;
+    height:60px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+    position: relative;
+    color:#777777;
+    border:1px;
+    border-color: #e7e7e7;
+}
+
+#shippingMenu[target="ALL"] {
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: 15px;
+    height: 60px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+    position: relative;
+    color: #777777;
+    border: 1px;
+    border-color: #e7e7e7;
+    min-width: 1200px;
+}
+
+#shippingMenu[target="staples-sandbox"] {
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: 15px;
+    height:60px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+    position: relative;
+    color:#777777;
+    border:1px;
+    border-color: #e7e7e7;
+}
+
+#shippingMenu[target="noon"] {
+    background-color: #feec35;
+    background-size: 90px;
+    background-repeat: no-repeat;
+    height:60px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+    position: relative;
+    color:#3f4453;
+}
+
+#shippingMenu.fixed {
+    position: fixed;
+    top: 0;
+    padding: 0;
+}
+#shippingMenu ul {
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+#shippingMenu ul li {
+    list-style: none;
+    margin: 0 30px 0 0;
+    display: inline;
+    height: 40px;
+}
+/* These needed for active arrow */
+#shippingMenu[target="harveynorman"] a{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color:#777777;
+}
+#shippingMenu.fixed[target="harveynorman"] a{
+ /*   padding: 15px 0;*/
+}
+#shippingMenu[target="noon"] a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color:#3f4453;
+}
+#shippingMenu[target="noon"].fixed a{
+    /*   padding: 15px 0;*/
+}
+/* Styling sections */
+#section0 {
+    background: white;
+    height: 0px;
+    width: 100%;
+}
+#section1 {
+    background: white;
+    height: 720px;
+    width: 100%;
+}
+#section2 {
+    background: white;
+    height: 310px;
+    width: 100%;
+}
+#section3 {
+    background: white;
+    height: 100%;
+    width: 100%;
+}
+#section4 {
+    background: white;
+    height: 100%;
+    width: 100%;
+}
+
+time.icon[target="_blank"]
+{
+    font-size: 1em; /* change icon size */
+    display: block;
+    position: relative;
+    width: 7em;
+    height: 7em;
+    background-color: #333333;
+/*    background-color: #fff;*/
+    margin: 2em auto;
+    border-radius: 0.6em;
+    box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: rotate(0deg) skewY(0deg);
+    -webkit-transform-origin: 50% 10%;
+    transform-origin: 50% 10%;
+}
+
+time.icon[target="_blank"] *
+{
+    display: block;
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+}
+
+time.icon[target="_blank"] strong
+{
+    position: absolute;
+    top: 0;
+    padding: 0.4em 0;
+    color: #2f2f2f;
+    background-color: #fde11b;
+    border-bottom: 1px dashed #f4db25;
+    box-shadow: 0 2px 0 #f4db25;
+}
+
+time.icon[target="_blank"] em
+{
+    position: absolute;
+    bottom: 0.7em;
+    color: #fde11b;
+}
+
+time.icon[target="_blank"] em2
+{
+    position: absolute;
+    bottom: 0.1em;
+    color: #fde11b;
+    font-weight: 100;
+    font-size: .5em;
+}
+
+time.icon[target="_blank"] span
+{
+    width: 100%;
+    font-size: 2.8em;
+    letter-spacing: -0.05em;
+    padding-top: 0.75em;
+    color: #fff;
+}
+
+time.icon:hover, time.icon:focus
+{
+    -webkit-animation: swing 0.6s ease-out;
+    animation: swing 0.6s ease-out;
+}
+
+@-webkit-keyframes swing {
+    0%   { -webkit-transform: rotate(0deg)  skewY(0deg); }
+    20%  { -webkit-transform: rotate(12deg) skewY(4deg); }
+    60%  { -webkit-transform: rotate(-9deg) skewY(-3deg); }
+    80%  { -webkit-transform: rotate(6deg)  skewY(-2deg); }
+    100% { -webkit-transform: rotate(0deg)  skewY(0deg); }
+}
+
+@keyframes swing {
+    0%   { transform: rotate(0deg)  skewY(0deg); }
+    20%  { transform: rotate(12deg) skewY(4deg); }
+    60%  { transform: rotate(-9deg) skewY(-3deg); }
+    80%  { transform: rotate(6deg)  skewY(-2deg); }
+    100% { transform: rotate(0deg)  skewY(0deg); }
+}
+
+/* HN Options */
+time.icon[target="harveynorman"]
+{
+    font-size: 1em; /* change icon size */
+    display: block;
+    position: relative;
+    width: 7em;
+    height: 7em;
+    background-color: #066cb5;
+    /*    background-color: #fff;*/
+    margin: 2em auto;
+    border-radius: 0.6em;
+    box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: rotate(0deg) skewY(0deg);
+    -webkit-transform-origin: 50% 10%;
+    transform-origin: 50% 10%;
+}
+
+time.icon[target="harveynorman"] *
+{
+    display: block;
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+}
+
+time.icon[target="harveynorman"] strong
+{
+    position: absolute;
+    top: 0;
+    padding: 0.4em 0;
+    color: #fff;
+/*    color: #2f2f2f; */
+    background-color: #e32c2f;
+    border-bottom: 1px solid #252ff4;
+    box-shadow: 0 2px 0 #021690;
+}
+
+time.icon[target="harveynorman"] em
+{
+    position: absolute;
+    bottom: 0.7em;
+    color: #fff;
+}
+
+time.icon[target="harveynorman"] em2
+{
+    position: absolute;
+    bottom: 0.1em;
+    color: #fff;
+    font-weight: 100;
+    font-size: .5em;
+}
+
+time.icon[target="harveynorman"] span
+{
+    width: 100%;
+    font-size: 2.8em;
+    letter-spacing: -0.05em;
+    padding-top: 0.75em;
+    color: #fff;
+}

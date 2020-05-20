@@ -1,0 +1,175 @@
+.websiteWrapper header {margin-bottom: 6px; padding-bottom: 25px; box-shadow: 0 0 10px  #949494;}
+.websiteWrapper .maxWidth {max-width: 995px; margin: 0 auto;}
+.websiteWrapper .headerContent {text-transform: uppercase;}
+.websiteWrapper .firstHeader {font-size: 34px; padding: 15px; font-family: 'Open Sans Condensed';}
+.websiteWrapper .borderBox {border-radius: 5px; border: 1px solid #e2e2e2; background-color: #fff; margin-top: 13px; padding: 10px 10px 25px 10px;}
+.websiteWrapper .sectionHeader {color: #333; text-transform: uppercase; font-size: 18px; margin-top: 20px; margin-bottom: 20px;}
+.websiteWrapper .diagonalArrow {background: url(~@/assets/imgs/icons.png) -90px 0 no-repeat; padding: 6px 15px; margin-left: 20px;}
+.websiteWrapper .phoneIcon {background: url(~@/assets/imgs/icons.png) -122px 1px no-repeat; padding: 6px 15px; }
+.websiteWrapper .dialogIcon {background: url(~@/assets/imgs/icons.png) -150px 0 no-repeat; padding: 6px 15px; }
+.websiteWrapper .mapIcon {background: url(~@/assets/imgs/icons.png) -180px 0 no-repeat; padding: 0 17px 15px;}
+.websiteWrapper .rightBorder {border-right: 1px solid #e2e2e2;}
+.websiteWrapper .paddingLeft {padding-right: 0; padding-left: 30px;}
+.websiteWrapper .blue {color: #13bcd8;}
+.websiteWrapper .green {color: #31c4b5;}
+.websiteWrapper .red {color: #ff3535;}
+
+
+
+/*regional-ops-dash*/
+.websiteWrapper .badge {color: #fff; font-size: 14px; background-color: #31c4b5; padding: 10px 35px; border-radius: 5px;display: block; font-weight: normal;}
+.websiteWrapper .date {padding: 7px 0 7px 30px;}
+.websiteWrapper .contentWrapper {background-color: #f5f5f4; padding-top: 13px; padding-bottom: 60px;}
+#mapDiv {border-radius: 5px; border: 1px solid #e2e2e2; min-height: 400px; max-height: 400px; max-width: 715px;}
+#mapDiv .esriControlsBR {display: none;}
+.websiteWrapper .modal {position: absolute; top:70px;}
+.websiteWrapper .modal-sm {width: 400px;}
+.modal .close {display: none;}
+.modal .modal-header {padding-bottom: 0; border: none; color: #465153;}
+.modal .modal-body {padding-top: 0;}
+.modal .badge {padding: 12px 0; text-transform: uppercase; background-color: #13bcd8;}
+.modal .modalAdress {color: #7d7d7d;}
+.modal .clearfix {margin: 20px 0 10px 0; height: 1px; border-top: 1px solid #e2e2e2;}
+.modal .modalFace {text-align: center; height: 62px;}
+.modal .modalName {font-size: 18px; font-weight: 500; text-align: center; color: #465153;}
+.modal .modalCount {color: #465153; font-size: 30px;}
+.modal .jobTitle {color: #13bcd8; font-size: 18px; text-transform: uppercase; padding-bottom: 5px;}
+.modal .jobDescription {color: #7d7d7d;} 
+.modal-backdrop.in {opacity: 0 !important;}
+.websiteWrapper .countCont {border-radius: 5px; border: 1px solid #e2e2e2; background-color: #fff;}
+.countCont .row {text-align: center;} 
+.countCont .row .col-md-12 {line-height: 1;}
+.countCont .count {font-size: 30px; font-weight: bold; padding-top: 22px;}
+.countCont .firstCount {color: #414b57;}
+.countCont .secondCount {color: #13bcd8;}
+.countCont .thirdCount {color: #31c4b5;}
+.countCont .fourCount {color: #f58e50;}
+.countCont .countText {font-size: 14px; padding-bottom: 22px; padding-top: 11px; color: #7d7d7d;}
+.countCont .clearfix {margin: 0 13px 0 13px; height: 1px; border-top: 1px solid #e2e2e2;}
+.websiteWrapper .tableSection {margin-bottom: 25px; margin-top: 25px;}
+.tableSection .tableBorder {border-radius: 5px; border: 1px solid #e2e2e2; overflow: hidden; background-color: #fff;}
+.tableSection .tableBorderNarrow {border-radius: 5px; border: 1px solid #e2e2e2; overflow: hidden; background-color: #fff;width:"96.5%"}
+.tableSection .table {margin-bottom: 0;}
+.tableSection .table .badge {padding: 5px 5px; text-transform: uppercase; background-color: #13bcd8;}
+.tableSection .table td, .tableSection .table th {vertical-align: middle; text-align: center;}
+.tableSection thead {background-color: #414b57; color: #fff; border: none;}
+.whiteBG {border-radius: 5px;background-color: white;border: 1px solid #e2e2e2;}
+.websiteWrapper .highcharts-container {border-radius: 5px; border: 1px solid #e2e2e2;}
+
+
+/*internal order status*/
+.websiteWrapper .homeLink {padding-left: 0; margin-top: 74px;}
+	.websiteWrapper .homeLink a {color: #31c4b5; font-size: 18px;}
+	.websiteWrapper .homeLink i {padding-right: 12px;}
+.websiteWrapper .orderId {color: #7d7d7d; font-size: 18px; margin-top: 30px; margin-bottom: 15px; font-family: 'Montserrat';}
+.orderIdSection .badge {color: #465153; background-color: #e3e4e6; font-weight: bold; padding: 10px 0; font-size: 16px; font-family: 'Montserrat'; margin-bottom: 5px;}
+.orderIdSection .instalBadge {min-width: 18%;}
+    .orderIdSection .instalBadge .badge {text-transform: uppercase; color: #13bcd8;}
+.orderIdSection .clearfix {padding-bottom: 15px;}
+.orderIdSection .OrderItem {margin-top: 20px;}
+.internalOrder .icon {width: 30px; height: 30px; float: left; margin-right: 15px;}
+	.firstIcon {background: url(~@/assets/imgs/icons.png) 0 0 no-repeat;}
+	.secondIcon {background: url(~@/assets/imgs/icons.png) -30px 0 no-repeat;}
+	.thirdIcon {background: url(~@/assets/imgs/icons.png) -60px 0 no-repeat;}
+.orderIdSection .OrderItem h3 {margin-top: 5px; margin-bottom: 5px; color: #7d7d7d; font-size: 18px;}
+.orderIdSection .OrderItem .item-content {padding-left: 45px;}
+.orderIdSection .OrderItem .time {color: #465153; font-size: 18px;}
+.orderIdSection .OrderItem .time span {padding-left: 30px; color: #7d7d7d;}
+.orderIdSection .timeBox {max-width: 122px; min-width: 110px;border-radius: 5px; border: 1px solid #e2e2e2; text-align: center; padding: 0; margin-top: 25px; float: left;}
+.orderIdSection .timeBox .boxTime {font-size: 24px; padding-top: 13px; padding-bottom: 10px; color: #a2a8a9;}
+.orderIdSection .timeBox .boxStatus {font-size: 16px; color: #757c85; font-size: 14px; padding-top: 12px; padding-bottom: 11px; text-transform: uppercase; background-color: #eeeff0;} 
+.orderIdSection .rightLineBox {position: relative; margin-left: 15px;}
+.orderIdSection .rightLineBox:after {content: ""; display: block; width: 15px; border-bottom: 1px solid #e2e2e2; position: absolute; bottom: 20px; right: -15px;}
+.orderIdSection .lastBox {margin-left: 15px;}
+.orderIdSection .acceptedBox.timeBox .boxTime {color: #13bcd8;}
+.orderIdSection .acceptedBox.timeBox .boxStatus {background-color: #13bcd8; color:#fff; border-radius: 0 0 5px 5px;}
+.orderIdSection .scheduledBox.timeBox .boxTime {color: #31c4b5;}
+.orderIdSection .scheduledBox.timeBox .boxStatus {background-color: #31c4b5; color:#fff; border-radius: 0 0 5px 5px;}
+.websiteWrapper .exceptionsSection {font-size: 14px; color: #000;}	
+.exceptionsSection .glyphicon-time {color: #ff3535; font-size: 18px; padding-right: 14px;}
+.orderAcceptedSection a {color: #13bcd8; font-size: 14px;}
+.orderAcceptedSection .headerRow {margin-bottom: 20px;}
+.orderAcceptedSection .row {margin-left: 0; margin-right: 0;}
+.orderAcceptedSection .noteNumb {padding:3px 7px; font-size: 14px; background-color: #13bcd8; border-radius: 50%; font-weight: bold; color: #fff; margin-right: 14px;}
+.orderAcceptedSection .orderNote {margin-left: 35px; position: relative; line-height: 1; margin-top: 5px;}
+.orderAcceptedSection .orderNote:after {position: absolute; content: ""; width: 4px; left: -25px; top: 0; height: 100%; background: #13bcd8; border-radius: 5px; display: block;}
+.scheduledSection .badgeCol {max-width: 100px;}
+.scheduledSection .badge {text-transform: uppercase; padding: 5px 0; }
+.assignedSection a {color: #13bcd8;}
+.assignedSection .row {margin-left: 0; margin-right: 0;}
+.assignedSection .firstRow {margin-bottom: 20px;}
+.assignedSection .noteNumb {padding:3px 7px; font-size: 14px; background-color: #13bcd8; border-radius: 50%; font-weight: bold; color: #fff; margin-right: 14px;}
+.assignedSection .orderNote {margin-left: 0; position: relative; line-height: 1; margin-top: 5px; padding-top: 20px;}
+.orderNote .col-md-5 {height: 100px;}
+.orderNote .col-md-5 .col-md-3, .orderNote .col-md-5 .col-md-8 {float: left;}
+.orderNote .col-md-2 {height: 100px;}
+.assignedSection .orderNote:after {position: absolute; content: ""; width: 4px; left: 9px; top: 0; height: 100%; background: #13bcd8; border-radius: 5px; display: block;}
+.assignedSection .orderNote .badge {background-color: #eeeff0; color: #414b57; font-size: 16px; padding: 8px 0; margin-top: 30px;}
+.assignedSection .orderNote .badge .numCount {color: #13bcd8; font-weight: bold; font-size: 16px;}
+.assignedSection .modalFace {padding: 0;}
+.assignedSection .nameLink {margin-bottom: 13px; font-weight: bold;}
+.assignedSection .idRow {color: #7d7d7d;}
+.assignedSection .contactIcons {margin-top: 10px; line-height: 1.5;}
+.assignedSection .contactIcons a {padding: 4px 5px; border-radius: 5px; border: 1px solid #e2e2e2; margin-right: 10px;}
+.outofDeliverySection .badge {color:#414b57; font-size: 16px;background-color: #eeeff0;}
+
+
+/*Pie Chart*/
+.easyPieChart {position: relative; text-align: center; font-size: 26px; font-family: 'Montserrat'; font-weight: bold; color: #13bcd8; line-height: 0.5 !important; padding-left: 10px; padding-right: 10px; padding-top: 40px;}
+    .easyPieChart span {font-size: 10px; color: #7d7d7d;}
+.easyPieChart canvas {position: absolute; top: 0; left: 0;}
+.chart {float: center;box-sizing: border-box;}
+.percentage,.label { text-align: center; color: #333; font-weight: 100; font-size: 1.2em; margin-bottom: 0.3em;}
+.credits {padding-top: 0.5em; clear: both; color: #999;}
+    .credits a {color: #333;}
+.dark {background: #333;}
+.dark .percentage-light,.dark .label {text-align: center; color: #999; font-weight: 100; font-size: 1.2em; margin-bottom: 0.3em;}
+
+
+
+/*Operator Dashboard*/
+.operatorDashboard .workerSection {padding-top: 25px;}
+.operatorDashboard .workerSection .badge {background-color: #13bcd8; padding: 10px 0; text-transform: uppercase;}
+.workFromDate {padding-right: 0; padding-top: 7px; color: #7d7d7d;}
+.workerName {padding-left: 0; color: #465153; font-size: 36px;}
+.chart2 {padding-top: 30px; font-size: 39px;}
+	.chart2 span {font-size: 15px;}
+.workFromDateId {margin-top: 10px;}
+.workerBoxes {margin-bottom: 20px; margin-top: 20px;}
+.workerBox {border-radius: 5px; border: 1px solid #e2e2e2;overflow: hidden; text-align: center;}
+.workerBoxHeader {background-color: black; border-bottom: 1px solid #e2e2e2; text-transform: uppercase; font-size: 18px; padding: 5px 0;color: #3a9eb5;}
+.boxScore {font-size: 30px; padding-top: 15px;}
+.workerBox .workFromDate {padding-top: 0; padding-bottom: 10px;}
+.borderBoxRight {border-right:1px solid #e2e2e2; }
+.footerWorkerHeader {font-size: 18px; text-transform: uppercase; margin-top: 15px;}
+.workerSection .col-md-3 .badge {background-color: #eeeff0; color: #414b57; font-size: 16px; margin-top: 15px; padding: 8px 0; text-transform: none;}
+	.workerSection .col-md-3 .badge .numCount {color: #13bcd8; font-size: 16px; font-weight: bold;}
+.operatorDashboard .progress {margin-bottom: 0; height: 30px; padding-top: 2px; padding-bottom: 2px;}
+.operatorDashboard .progress-bar {background-image: linear-gradient(to bottom, #13bcd8 0px, #13bcd8 100%); font-size: 16px; font-weight: bold; padding-top: 3px;}
+	.operatorDashboard .tableSection .tableBorder {overflow: visible;}
+	.operatorDashboard .tableSection thead {/* background-color: #f7f6f6; */ border: medium none; /* color: #828282; */}
+.popupHover {cursor: pointer; position: relative;}
+.popupHover:hover .tablePopUp {display: block;}
+	.tablePopUp {text-align: left; display: none; position:absolute; background-color: #fff; bottom: 35px; border: 1px solid #e2e2e2; border-radius: 5px; padding: 10px;}
+.popUpHeader {text-transform: uppercase; font-size: 18px;}
+
+.calendarTable .table td {width: 10%; border:none; text-align: center;}
+.calendarTable .table .filed {background-color: #31c4b5;}
+.calendarTable .table .unfiled {background-color: #f7f6f6;}
+
+.calendarTable .table td.tdBorder {border: 1px solid #e2e2e2;}
+.calendarTable .table td.emptyline {padding: 0;}
+
+@media (max-width: 890px) {
+.websiteWrapper .firstHeader, .websiteWrapper .homeLink, .websiteWrapper .mapIconCont {text-align: center;}
+.websiteWrapper .mapIconCont {margin-top: 20px;}
+.orderNote .col-md-5 {float:left;}
+.assignedSection .col-md-3.paddingLeft {float: left; height: 100px; width:33%;}
+}
+@media (max-width: 360px) {
+.orderNote .col-md-5 {height: 150px;}
+.orderNote .col-md-2 {text-align: center; margin: 0 auto; width: 30%;}
+.websiteWrapper .mapIconCont {margin-top: 20px;}
+.assignedSection .col-md-3.paddingLeft {height: 60px;margin-top: 10px; width: 100%; text-align: center;}
+.websiteWrapper .rightBorder {text-align: center; margin: 0 auto; width: 30%; border:none;}
+}

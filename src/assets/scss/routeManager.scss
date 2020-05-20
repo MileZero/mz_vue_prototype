@@ -1,0 +1,120 @@
+button.change {
+    border: none;
+    height: 40px;
+    padding: 5px 15px;
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+button.change:hover {
+    cursor: pointer;
+    color: #F89900;
+}
+
+button:active {
+    outline: none;
+    border: none;
+}
+
+button:focus {outline:0;}
+
+body {font-family: sans-serif;background:#333}
+
+input { font-size: 2em; color:cornflowerblue} /* prevent zoom in mobile */
+
+ol {
+    /* list style is faked with number inputs */
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    position: relative;
+    min-height: 1em;
+    cursor: move;
+    padding: .5em .5em .5em 2.5em;
+    background: #eee;
+    border: 1px solid #fff;
+    margin: .25em 0;
+    border-radius: .25em;
+    max-width: 20em;
+}
+
+li input {
+    /* Move these to visually fake the ol numbers */
+    position: absolute;
+    width: 2em;
+    left: 0em;
+    top: .25em;
+    border: 0;
+    text-align: center;
+    background: transparent
+}
+
+li label {
+    /* visually hidden offscreen so it still benefits screen readers */
+    position: absolute;
+    left: -9999px;
+}
+
+/* sortable plugin styles when dragged */
+.dragged {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 2000;
+}
+
+li.placeholder {
+    position: relative;
+    background: orange;
+}
+
+
+table.routeTable {
+/*    border: 1px solid #727894;*/
+    background-color: #FFFFFF;
+    width: 92%;
+    margin-left: 20px;
+    text-align: center;
+}
+table.routeTable td, table.routeTable th {
+/*    border: 1px solid #C4C4C4;*/
+    padding: 0px 0px;
+}
+table.routeTable tbody td {
+    font-size: 13px;
+}
+table.routeTable tr:nth-child(even) {
+    background: #E6F0FA;
+}
+table.routeTable thead {
+    background: #727894;
+    background: -moz-linear-gradient(top, #959aaf 0%, #80859e 66%, #727894 100%);
+    background: -webkit-linear-gradient(top, #959aaf 0%, #80859e 66%, #727894 100%);
+    background: linear-gradient(to bottom, #959aaf 0%, #80859e 66%, #727894 100%);
+}
+table.routeTable thead th {
+    font-size: 17px;
+    font-weight: bold;
+    color: #F0F0F0;
+    text-align: left;
+    border-left: 1px solid #727894;
+}
+table.routeTable thead th:first-child {
+    border-left: none;
+}
+
+table.routeTable tfoot {
+    font-size: 16px;
+    font-weight: bold;
+    color: #F0F0F0;
+    background: #727894;
+    background: -moz-linear-gradient(top, #959aaf 0%, #80859e 66%, #727894 100%);
+    background: -webkit-linear-gradient(top, #959aaf 0%, #80859e 66%, #727894 100%);
+    background: linear-gradient(to bottom, #959aaf 0%, #80859e 66%, #727894 100%);
+}
+table.routeTable tfoot td {
+    font-size: 16px;
+}

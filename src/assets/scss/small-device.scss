@@ -1,0 +1,49 @@
+@media only screen and (max-device-width: 480px) {
+    div#wrapper {
+        width: 400px;
+    }
+
+    div#header {
+        /*        background-image: url(media-queries-phone.jpg); */
+        height: 93px;
+        position: relative;
+    }
+
+    div#header h1 {
+        font-size: 140%;
+    }
+
+    #content {
+        float: none;
+        width: 100%;
+    }
+
+    #navigation {
+        float:none;
+        width: auto;
+    }
+}
+
+ul, menu, dir {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 80px;
+}
+
+#wrapper {
+    width: auto;
+    margin: auto;
+    text-align: left;
+    background-image: url(/imgs/mzlogo.gif);
+    background-position: left 5px;
+    background-repeat: no-repeat;
+    min-height: 400px;
+}
+
+.article #aside {
+    float: none;
+    width: auto;
+}

@@ -1,0 +1,31 @@
+.MenuBar {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  bottom: 0;
+  width: 160px;
+}
+
+.Content-sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 160px;
+  background-color: #0a141a;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+div.SettingsMenu {
+  margin-top: auto;
+}
+
+div.SettingsMenu::before {
+  background-position: -250px 0;
+}
+
+div.LogoutMenu::before {
+  background-position: -300px 0;
+}

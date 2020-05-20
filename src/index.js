@@ -1,15 +1,26 @@
-import SidebarMenu from './components/SidebarMenu.vue';
-import DropDown from './components/dropdown.vue';
-import NavigationBar from 'vue-navigation-bar';
+/* eslint-disable */
+import Vue from 'vue';
+import HighchartsVue from 'highcharts-vue';
+import App from './App.vue';
+import router from './router';
+import store from './store/store'
+import { Auth0Plugin } from './service/auth';
+import * as AuthOptions from './service/auth/auth0-local-connection.json';
 
-export default {
-    install(Vue, options) {
-        Vue.component('sidebar-menu', SidebarMenu)
-        Vue.component('vue-navigation-bar', NavigationBar)
-        Vue.component('dropdown', DropDown)
-    }
-}
+Vue.config.productionTip = false;
 
-export { SidebarMenu }
-export { NavigationBar }
-export { DropDown }
+Vue.use(HighchartsVue);
+
+/* Initialize Auth0 Plugin */
+Vue.use(Auth0Plugin, {
+  domain: AuthOptions.domain,
+  clientId: AuthOptions.clientId,
+  options: AuthOptions.options,
+});
+
+/* Render Vue Application */
+new Vue({
+  router,
+  render: (h) => h(App),
+  store,
+}).$mount('#app');

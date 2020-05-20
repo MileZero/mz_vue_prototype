@@ -1,0 +1,36 @@
+div.ArrowContainer {
+  width: 20px;
+  height: 20px;
+  transform: scale(0.65);
+  display: inline-block;
+  position: relative;
+  margin-top: 14px;
+  margin-left: auto;
+  margin-right: 8px;
+  margin-bottom: auto;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+
+div.ArrowSelected {
+  transform: rotate(90deg) scale(0.7);
+  top: 3px;
+}
+
+div.Arrow {
+  top: 0.65rem;
+  position: absolute;
+  width: 1.2rem;
+  height: 0.2rem;
+  background-color: #efefef;
+  display: inline-block;
+}
+
+div.ArrowLeftSide{
+  transform: rotate(45deg);
+  margin-top: 0px;
+}
+div.ArrowRightSide{
+  transform: rotate(-45deg);
+  margin-top: 7px;
+}

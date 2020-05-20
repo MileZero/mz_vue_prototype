@@ -1,0 +1,88 @@
+div.HubSelectionMenu {
+  margin-left: auto;
+  margin-right: 3%;
+  cursor: pointer;
+  min-width: 250px;
+  max-width: 250px;
+}
+
+div.HubSelectionMenuContent {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+div.HubOptionsList {
+  background-color: #e0e4e6;
+  z-index: 0;
+  border-radius: 5px;
+  border-left: 2px inset #000000;
+  border-right: 2px inset #000000;
+  border-bottom: 2px inset #000000;
+  margin-top: 4px;
+  width: 250px;
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+div.HubListItem {
+  padding: 2px 4px 2px 4px;
+  cursor: pointer;
+  width: inherit;
+  text-align: center;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+div.HubListItem:hover {
+  background: rgba(47, 172, 226, 0.822);
+  color: white;
+}
+
+div.SelectedHub.HubListItem {
+  background: rgba(47,171,226,1);
+  color: white;
+}
+
+div.HubOptionsList > div {
+  color: black;
+  text-align: left;
+  margin-right: 10px;
+}
+
+div.HubInfo, div.DateTime {
+  width: 190px;
+  align-self: flex-end;
+}
+
+div.HubInfo {
+  font-size: 18px;
+  margin-top: -4px;
+}
+
+div.DateTime {
+  font-size: 14px;
+}
+
+.HubOptions-enter-active {
+  transition: all .15s ease;
+}
+
+.HubOptions-leave-active {
+  transition: all .15s ease;
+}
+
+.HubOptions-enter, .HubOptions-leave-to {
+  transform: translateY(-40px);
+  opacity: 0.1;
+}
+
+.HubOptions-leave, .SlideDown-enter-to {
+  transform: translateY(0px);
+  opacity: 1;
+}

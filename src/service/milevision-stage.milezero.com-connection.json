@@ -1,0 +1,6 @@
+{
+  "name": "MileVision Stage",
+  "mvbUrl": "https://milevision-stage.milezero.com/mvb-svc/api",
+  "websocketUrl": "wss://milevision-stage.milezero.com/mvb-svc/api/websocket",
+  "mileviewUrl": "https://view.stage.milezero.com/mv/"
+}

@@ -1,0 +1,29 @@
+div.UserMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-right: 35px;
+  margin-left: -20px;
+}
+
+div.UserInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  flex-wrap: wrap;
+}
+
+div.UserName {
+  margin-top: 5px;
+}
+
+div.UserProfileImage {
+  background-repeat: round;
+  content: '';
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
